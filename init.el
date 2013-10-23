@@ -10,100 +10,51 @@
 	(mapcar 'expand-file-name paths)))
 
 ;;--------------------------------------------------------------------
-;; eval-safe
-;; http://www.sodan.org/~knagano/emacs/dotemacs.html#eval-safe
-;;--------------------------------------------------------------------
-(defmacro eval-safe (&rest body)
-  "安全な評価。評価に失敗してもそこで止まらない。"
-  `(condition-case err
-       (progn ,@body)
-     (error (message "[eval-safe] %s" err))))
-
-;;--------------------------------------------------------------------
 ;; load-pathを追加
 ;;--------------------------------------------------------------------
-(add-to-load-path "~/.emacs.d/elisp/"	;;elisp格納ディレクトリ
-		  "~/.emacs.d/elisp/w3m";;w3m格納ディレクトリ
-		  "~/.emacs.d/elisp/org-7.8.03";;org-mode格納ディレクトリ
-		  "~/.emacs.d/elisp/nyan-mode";;w3m格納ディレクトリ
-		  "~/.emacs.d/conf"	;;個別の設定格納ディレクトリ
-		  "~/.emacs.d/elisp/twittering-mode-2.0.0"
-		  )
+;; (add-to-load-path "~/.emacs.d/elisp/"	;;elisp格納ディレクトリ
+;; 		  "~/.emacs.d/elisp/w3m";;w3m格納ディレクトリ
+;; 		  "~/.emacs.d/elisp/org-7.8.03";;org-mode格納ディレクトリ
+;; 		  "~/.emacs.d/elisp/nyan-mode";;w3m格納ディレクトリ
+;; 		  "~/.emacs.d/conf"	;;個別の設定格納ディレクトリ
+;; 		  "~/.emacs.d/elisp/twittering-mode-2.0.0"
+;; 		  )
 
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/elisp"))
+;(add-to-list 'load-path (expand-file-name "~/.emacs.d/elisp"))
 
-;;--------------------------------------------------------------------;
-;; 基本設定
-;;--------------------------------------------------------------------
-;(if (not window-system)
-;  ;; Terminal 上での動作設定
-;  )
+(let ((default-directory (expand-file-name "~/.emacs.d/elisp")))
+  (add-to-list 'load-path default-directory)
+  (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
+      (normal-top-level-add-subdirs-to-load-path)))
 
-;; スタート画面なしに
-;(setq inhibit-startup-message t)
+;; -------------------------------------------------------------------
+;; package
+(require 'package)
 
-;; C-hはバックスペース
-(global-set-key "\C-h" 'delete-backward-char)
+; Add package-archives
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/")) ; ついでにmarmaladeも追加
 
-;; scroll
-(setq scroll-conservatively 35
-       scroll-margin 3
-       scroll-step 1)
+; Initialize
+(package-initialize)
 
-(global-linum-mode t)
-(setq linum-delay t)
-;; 行番号高速化
-(defadvice linum-schedule (around my-linum-schedule () activate)
-  (run-with-idle-timer 0.2 nil #'linum-update-current))
+;; -------------------------------------------------------------------
+;; el-get
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
-(setq tab-width 4)
+(unless (require 'el-get nil 'noerror)
+  (with-current-buffer
+      (url-retrieve-synchronously
+       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
+    (goto-char (point-max))
+    (eval-print-last-sexp)))
 
-;; マウスのホイールスクロールスピードを調節
-;; (連続して回しているととんでもない早さになってしまう。特にLogicoolのマウス)
-;; (defun scroll-down-with-lines ()
-;;   "" (interactive) (scroll-down 1))
-;; (defun scroll-up-with-lines ()
-;;   "" (interactive) (scroll-up 1))
-;; (global-set-key [wheel-up] 'scroll-down-with-lines)
-;; (global-set-key [wheel-down] 'scroll-up-with-lines)
-;; (global-set-key [double-wheel-up] 'scroll-down-with-lines)
-;; (global-set-key [double-wheel-down] 'scroll-up-with-lines)
-;; (global-set-key [triple-wheel-up] 'scroll-down-with-lines)
-;; (global-set-key [triple-wheel-down] 'scroll-up-with-lines)
+(el-get 'sync)
 
-;; ビープを鳴らさない
-(setq visible-bell nil)
-;; ツールバーをオフ
-(tool-bar-mode 0)
+;; -------------------------------------------------------------------
+;; init-loader
+(require 'init-loader)
+(setq init-loader-show-log-after-init nil)
+(init-loader-load "~/.emacs.d/inits")
 
-;; 最近開いたファイルをたくさん残す
-(recentf-mode)
-(setq recentf-max-menu-items 20)
-(setq recentf-max-saved-items 1000)
-
-;;起動時のフレームサイズを設定する
-(setq initial-frame-alist
-      (append (list
-        '(width . 120)
-        '(height . 48)
-        )
-        initial-frame-alist))
-(setq default-frame-alist initial-frame-alist)
-
-
-;;--------------------------------------------------------------------;
-;; 日本語設定
-;;--------------------------------------------------------------------
-; 言語を日本語にする
-(set-language-environment 'Japanese)
-; 極力UTF-8とする
-(prefer-coding-system 'utf-8)
-;; クリップボードの文字コード
-(set-selection-coding-system 'utf-8)
-;; 端末の文字コード
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-;; ファイル名の文字コード
-(require 'ucs-normalize)
-(set-file-name-coding-system 'utf-8-hfs)
 
