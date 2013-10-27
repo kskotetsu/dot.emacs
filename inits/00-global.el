@@ -61,7 +61,8 @@
 ;; 日本語設定
 ;;--------------------------------------------------------------------
 ; 言語を日本語にする
-(set-language-environment 'Japanese)
+;(set-language-environment 'Japanese)
+(set-language-environment 'utf-8)
 ; 極力UTF-8とする
 (prefer-coding-system 'utf-8)
 ;; クリップボードの文字コード
@@ -72,4 +73,4 @@
 ;; ファイル名の文字コード
 (require 'ucs-normalize)
 (set-file-name-coding-system 'utf-8-hfs)
-
+(setq locale-coding-system 'utf-8)
