@@ -174,3 +174,6 @@
 (setq migemo-regex-dictionary nil)
 (load-library "migemo")
 (migemo-init)
+
+;; multi-term
+(setq locale-coding-system 'utf-8)
