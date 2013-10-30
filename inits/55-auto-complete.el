@@ -1,3 +1,5 @@
+(el-get 'sync 'auto-complete)
+
 (require 'auto-complete-config)
 (ac-config-default)
 
