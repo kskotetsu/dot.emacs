@@ -38,10 +38,10 @@
 ;;--------------------------------------------------------------------
 ;; font
 ;;--------------------------------------------------------------------
-(create-fontset-from-ascii-font "Menlo-12:weight=normal:slant=normal" nil "menlokakugo")
+(create-fontset-from-ascii-font "Menlo-11:weight=normal:slant=normal" nil "menlokakugo")
 (set-fontset-font "fontset-menlokakugo"
                   'unicode
-                  (font-spec :family "Hiragino Kaku Gothic ProN" :size 12)
+                  (font-spec :family "Hiragino Kaku Gothic ProN" :size 11)
                   nil
                   'append)
 
