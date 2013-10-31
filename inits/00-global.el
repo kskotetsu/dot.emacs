@@ -18,6 +18,7 @@
 
 (global-linum-mode t)
 (setq linum-delay t)
+
 ;; 行番号高速化
 (defadvice linum-schedule (around my-linum-schedule () activate)
   (run-with-idle-timer 0.2 nil #'linum-update-current))
@@ -58,6 +59,10 @@
         initial-frame-alist))
 (setq default-frame-alist initial-frame-alist)
 
+; find-fileのファイル名補完で大文字小文字を区別しない
+;(setq completion-ignore-case t);古い方法
+(setq read-buffer-completion-ignore-case t)
+(setq read-file-name-completion-ignore-case t)
 
 ;;--------------------------------------------------------------------;
 ;; 日本語設定
@@ -102,7 +107,7 @@
 ; clang++ -cc1 -emit-pch -x c++-header ./stdafx.h -o stdafx.pch　-I(インクルードディレクトリ)
 (add-hook 'c++-mode-hook '(lambda ()
 			    ;(my-ac-cc-mode-setup)
-			    (gtags-mode 1)
+			    ;(gtags-mode 1)
 			    (setq c-auto-newline nil)
 			    
 			    (setq c-auto-newline nil)
@@ -134,3 +139,6 @@
 			    (c-set-offset 'case-label 2)
 			    
 			    ))
+
+
+
