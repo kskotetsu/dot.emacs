@@ -64,7 +64,7 @@
 ; clang++ -cc1 -emit-pch -x c++-header ./stdafx.h -o stdafx.pch　-I(インクルードディレクトリ)
 (add-hook 'c++-mode-hook '(lambda ()
 			    ;(my-ac-cc-mode-setup)
-			    (gtags-mode 1)
+			    ;(gtags-mode 1)
 			    (setq c-auto-newline nil)
 				;;(linum-mode)
 			    (setq c++-tab-always-indent nil)		; [TAB] キーで、TABコードを入力
@@ -94,3 +94,6 @@
 			    (c-set-offset 'case-label 2)
 			    
 			    ))
+
+
+
