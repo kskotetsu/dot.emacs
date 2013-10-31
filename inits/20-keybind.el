@@ -1,6 +1,6 @@
 ;
 (global-set-key '[f2] 'multi-term)
-;(global-set-key '[f9] 'ff-find-other-file)
+(global-set-key '[f9] 'ff-find-other-file)
 
 ;; C-C bfpnでウィンドウ移動
 (global-set-key (kbd "C-c b") 'windmove-left)
@@ -21,3 +21,7 @@
 (define-key isearch-mode-map [backspace] 'isearch-delete-char)
 (define-key isearch-mode-map (kbd "C-h") 'isearch-delete-char)
 
+;; =================
+;search
+(el-get 'sync 'color-occur)
+(global-set-key (kbd "M-o") 'helm-occur)
