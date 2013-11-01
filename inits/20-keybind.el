@@ -1,4 +1,7 @@
 ;
+;; C-hはバックスペース
+(global-set-key "\C-h" 'delete-backward-char)
+
 (global-set-key '[f2] 'multi-term)
 (global-set-key '[f9] 'ff-find-other-file)
 
