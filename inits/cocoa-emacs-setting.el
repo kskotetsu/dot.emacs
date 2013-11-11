@@ -181,6 +181,8 @@
 (el-get 'sync 'multi-term)
 (setq locale-coding-system 'utf-8)
 (setq multi-term-program "/usr/local/bin/zsh")
+;; term に奪われたくないキー
+(add-to-list 'term-unbind-key-list '"C-a")
 
 ;; my-keybinds for keybinds -e
 (defun term-send-forward-char ()
@@ -218,3 +220,10 @@
                (loop for (keybind function) in key-and-func do
                      (define-key term-raw-map keybind function)))))
 
+;; (add-hook 'term-mode-hook
+;;          '(lambda ()
+;;             ;; C-h を term 内文字削除にする
+;;             (define-key term-raw-map (kbd "C-h") 'term-send-backspace)
+;;             ;; C-y を term 内ペーストにする
+;;             (define-key term-raw-map (kbd "C-y") 'term-paste)
+;;             ))
