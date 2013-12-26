@@ -50,6 +50,22 @@
     (goto-char (point-max))
     (eval-print-last-sexp)))
 
+(setq el-get-sources
+      '(
+        (:name dabbrev-ja
+               :description "dabbrev-ja"
+               :type http
+               :url "http://namazu.org/~tsuchiya/elisp/dabbrev-ja.el"
+               :load-path (".")
+               )
+        (:name dabbrev-highlight
+               :description "dabbrev-highlight"
+               :type http
+               :url "http://www.namazu.org/~tsuchiya/elisp/dabbrev-highlight.el"
+	       :load-path (".")
+	       )
+	))
+
 (el-get 'sync)
 
 ;; -------------------------------------------------------------------
