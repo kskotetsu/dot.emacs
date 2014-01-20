@@ -98,3 +98,5 @@
 (init-loader-load "~/.emacs.d/inits")
 
 (cd "~/")
+(setq default-directory "~/")
+(setq command-line-default-directory "~/")
