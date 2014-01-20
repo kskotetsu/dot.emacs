@@ -28,3 +28,11 @@
 ;search
 ;(el-get 'sync 'color-occur)
 (global-set-key (kbd "M-o") 'helm-occur)
+
+;;; ここからフォントサイズ変更の設定
+; \C-+ で拡大
+(global-set-key (kbd "C-+") (lambda () (interactive) (text-scale-increase 1)))
+; \C-- で縮小
+(global-set-key (kbd "C--") (lambda () (interactive) (text-scale-decrease 1)))
+; \C-0 でデフォルトに戻す
+(global-set-key (kbd "C-0") (lambda () (interactive) (text-scale-increase 0)))
