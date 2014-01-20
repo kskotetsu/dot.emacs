@@ -26,5 +26,5 @@
 
 ;; =================
 ;search
-(el-get 'sync 'color-occur)
+;(el-get 'sync 'color-occur)
 (global-set-key (kbd "M-o") 'helm-occur)
