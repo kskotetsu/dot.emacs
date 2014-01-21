@@ -27,6 +27,9 @@
   (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
       (normal-top-level-add-subdirs-to-load-path)))
 
+(require 'exec-path-from-shell)
+(exec-path-from-shell-initialize)
+
 ;; -------------------------------------------------------------------
 ;; package
 (require 'package)
@@ -95,3 +98,5 @@
 (init-loader-load "~/.emacs.d/inits")
 
 (cd "~/")
+(setq default-directory "~/")
+(setq command-line-default-directory "~/")
