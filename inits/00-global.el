@@ -99,3 +99,5 @@
 ;(package-install 'exec-path-from-shell)
 (exec-path-from-shell-initialize)
 
+(server-start)
+
