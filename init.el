@@ -27,9 +27,6 @@
   (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
       (normal-top-level-add-subdirs-to-load-path)))
 
-(require 'exec-path-from-shell)
-(exec-path-from-shell-initialize)
-
 ;; -------------------------------------------------------------------
 ;; package
 (require 'package)
@@ -47,6 +44,7 @@
   '(
     ;; ここに使っているパッケージを書く。
     init-loader
+	exec-path-from-shell
     ))
 
 (let ((not-installed (loop for x in installing-package-list
@@ -56,6 +54,10 @@
     (package-refresh-contents)
     (dolist (pkg not-installed)
         (package-install pkg))))
+
+(require 'exec-path-from-shell)
+(exec-path-from-shell-initialize)
+
 
 ;; -------------------------------------------------------------------
 ;; el-get
