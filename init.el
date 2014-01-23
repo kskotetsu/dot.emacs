@@ -55,9 +55,6 @@
     (dolist (pkg not-installed)
         (package-install pkg))))
 
-(require 'exec-path-from-shell)
-(exec-path-from-shell-initialize)
-
 
 ;; -------------------------------------------------------------------
 ;; el-get

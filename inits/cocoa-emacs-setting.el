@@ -227,3 +227,9 @@
 ;;             ;; C-y を term 内ペーストにする
 ;;             (define-key term-raw-map (kbd "C-y") 'term-paste)
 ;;             ))
+
+
+;パスをシェルから持ってくる。windowsはこれをいれるとpath=$PATHになる？
+(require 'exec-path-from-shell)
+(exec-path-from-shell-initialize)
+
