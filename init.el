@@ -45,6 +45,7 @@
     ;; ここに使っているパッケージを書く。
     init-loader
 	exec-path-from-shell
+	gtags
     ))
 
 (let ((not-installed (loop for x in installing-package-list
