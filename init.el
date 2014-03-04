@@ -46,6 +46,7 @@
     init-loader
 	exec-path-from-shell
 	gtags
+	auto-save-buffers-enhanced
     ))
 
 (let ((not-installed (loop for x in installing-package-list

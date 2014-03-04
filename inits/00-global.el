@@ -26,6 +26,10 @@
 (setq recentf-max-menu-items 20)
 (setq recentf-max-saved-items 1000)
 
+(require 'auto-save-buffers-enhanced)
+(setq auto-save-buffers-enhanced-interval 1)
+(auto-save-buffers-enhanced t)
+
 ;;--------------------------------------------------------------------;
 ;; 日本語設定
 ;;--------------------------------------------------------------------
@@ -53,50 +57,27 @@
 ;; 検索設定
 (setq case-fold-search t)               ;検索では大文字小文字を区別しない
 
+;; バッファー名の問い合わせで大文字小文字の区別をしない
+(setq read-buffer-completion-ignore-case t)
+;; ファイル名の問い合わせで大文字小文字の区別をしない
+(setq read-file-name-completion-ignore-case t)
+
 ;IME ON/OFF時のカーソルカラー
 ;(add-hook 'input-method-activate-hook
 ;(lambda() (set-cursor-color "green")))
 ;(add-hook 'input-method-inactivate-hook
 ;(lambda() (set-cursor-color "white")))
 
+; diff-hl.el
+; バージョン管理下のコードをハイライト
+;(global-diff-hl-mode)
+;(add-hook 'dired-mode-hook 'diff-hl-dired-mode)
+;(unless (window-system) (diff-hl-margin-mode))
+
 ;; ------------------------------------------------------------------------
-;; C++モード
-; プリコンパイルヘッダの作り方
-; clang++ -cc1 -emit-pch -x c++-header ./stdafx.h -o stdafx.pch　-I(インクルードディレクトリ)
-(add-hook 'c++-mode-hook '(lambda ()
-			    ;(my-ac-cc-mode-setup)
-			    ;(gtags-mode 1)
-			    (setq c-auto-newline nil)
-				;;(linum-mode)
-			    (setq c++-tab-always-indent nil)		; [TAB] キーで、TABコードを入力
-			    (setq c-tab-always-indent nil)			; [TAB] キーで、TABコードを入力
-			    (setq indent-tabs-mode t)
-			    (show-paren-mode t)						;対応する括弧を表示
-			    (setq tab-width 4)
-			    (c-toggle-hungry-state -1)
-			    (setq truncate-lines t)					;長い行を折り返し表示しない
-				;(setq show-paren-style 'expression)
-			    (c-set-style "stroustrup")	
-			    (local-set-key "\C-m" 'newline-and-indent)
-			    (local-set-key "\C-j" 'newline-and-indent)
-			    (setq dabbrev-case-fold-search nil)
-				;; (setq comment-start "// "
-				;; 		comment-end " "
-				;; 		)
-			    (font-lock-fontify-buffer)
-			    (setq font-lock-keywords c++-font-lock-keywords-2)
-				;; http://d.hatena.ne.jp/i_s/20091026/1256557730
-			    (c-set-offset 'innamespace 0)			; namespace {}の中はインデントしない
-			    (c-set-offset 'arglist-close 0)			; 関数の引数リストの閉じ括弧はインデントしない
-			    (c-set-offset 'label 0)
-			    (c-set-offset 'substatement-open 0)
-			    (c-set-offset 'statement-case-intro 2)
-			    (c-set-offset 'inline-open 0)
-			    (c-set-offset 'case-label 2)
-			    
-			    ))
-
-
+;; 日にちの挿入
+(defun my-get-date-gen (form) (insert (format-time-string form)))
+(defun my-insert-date () (interactive) (my-get-date-gen "%Y年%m月%d日"))
 
 (server-start)
 
