@@ -44,3 +44,7 @@
 (autoload 'ansi-color-for-comint-mode-on "ansi-color"
   "Set `ansi-color-for-comint-mode' to t." t)
 
+;(eval-after-load "gnutls"
+;  '(setq gnutls-trustfiles "c:/cygwin/usr/ssl/certs/ca-bundle.crt")
+
+(eval-after-load "gnutls" '(setq gnutls-trustfiles (mapcar 'expand-file-name gnutls-trustfiles)))
