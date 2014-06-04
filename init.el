@@ -60,6 +60,11 @@
     init-loader
 	exec-path-from-shell
 	gtags
+	smartrep
+	enh-ruby-mode
+	ruby-electric
+	ruby-block
+	inf-ruby
     ))
 
 (let ((not-installed (loop for x in installing-package-list
