@@ -60,6 +60,8 @@
     init-loader
 	exec-path-from-shell
 	gtags
+	anzu
+	icicles
 	flycheck
 	flycheck-tip
 	smartrep
