@@ -11,6 +11,7 @@
 
 (add-hook 'emacs-lisp-mode-hook 'flycheck-disable-on-temp-buffers)
 
+(require 'smartrep)
 (smartrep-define-key
     global-map "M-g" '(("M-n" . 'flycheck-tip-cycle)
                        ("M-p" . 'flycheck-tip-cycle-reverse)))
