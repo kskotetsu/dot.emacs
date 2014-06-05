@@ -60,7 +60,10 @@
     init-loader
 	exec-path-from-shell
 	gtags
+	flycheck
+	flycheck-tip
 	smartrep
+	git-gutter-fringe
 	enh-ruby-mode
 	ruby-electric
 	ruby-block

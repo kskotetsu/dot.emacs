@@ -1,6 +1,7 @@
 ;; 逐次文法チェックする
 
-(package-install 'flycheck)
+;(package-install 'flycheck)
+;(package-install 'flycheck-tip)
 
 (setq flycheck-check-syntax-automatically '(mode-enabled save))
 
@@ -9,9 +10,6 @@
    (unless (and buffer-file-name (file-exists-p buffer-file-name) (flycheck-mode -1)
 
 (add-hook 'emacs-lisp-mode-hook 'flycheck-disable-on-temp-buffers)
-
-
-(package-install 'flycheck-tip)
 
 (smartrep-define-key
     global-map "M-g" '(("M-n" . 'flycheck-tip-cycle)
