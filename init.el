@@ -61,11 +61,11 @@
 	exec-path-from-shell
 	gtags
 	anzu
-	icicles
+	;icicles
 	flycheck
 	flycheck-tip
 	smartrep
-	git-gutter-fringe
+	git-gutter-fringe+
 	enh-ruby-mode
 	ruby-electric
 	ruby-block

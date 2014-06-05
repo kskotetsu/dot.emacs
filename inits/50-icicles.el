@@ -1,4 +1,4 @@
-(icy-mode 1)
+;(icy-mode t)
 
 ; C-hを上書きするので戻す
-(define-key icicle-mode-map "\C-h" 'backward-delete-char)
+;(define-key icicle-mode-map "\C-h" 'backward-delete-char)
