@@ -14,12 +14,6 @@
 (global-set-key (kbd "C-c l") 'windmove-right)
 (global-set-key (kbd "C-c k") 'windmove-up)
 
-;(define-key helm-map (kbd "C-h") 'delete-backward-char)
-(eval-after-load 'helm
-  '(progn
-     (define-key helm-map (kbd "C-h") 'delete-backward-char)
-     ))
-
 ;; backspaceキーをインクリメンタルサーチ中のミニバッファで有効にする
 (define-key isearch-mode-map [backspace] 'isearch-delete-char)
 (define-key isearch-mode-map (kbd "C-h") 'isearch-delete-char)
@@ -27,7 +21,6 @@
 ;; =================
 ;search
 ;(el-get 'sync 'color-occur)
-(global-set-key (kbd "M-o") 'helm-occur)
 
 ;;; ここからフォントサイズ変更の設定
 ; \C-+ で拡大
@@ -36,3 +29,4 @@
 (global-set-key (kbd "C--") (lambda () (interactive) (text-scale-decrease 1)))
 ; \C-0 でデフォルトに戻す
 (global-set-key (kbd "C-0") (lambda () (interactive) (text-scale-increase 0)))
+
