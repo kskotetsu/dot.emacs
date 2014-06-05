@@ -70,3 +70,8 @@
 (global-set-key (kbd "M-o") 'helm-occur)
 ; C-u C-M-oで再帰grep
 (global-set-key (kbd "C-M-o") 'helm-do-grep)
+;(global-set-key (kbd "C-M-o") 'helm-ag)
+
+;(setq helm-ag-base-command "/cygdrive/c/Chocolatey/bin/ag.bat")
+(setq helm-ack-base-command "/cygdrive/c/Chocolatey/bin/ack.bat")
+(setq helm-c-ack-use-ack-grep nil)
