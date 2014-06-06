@@ -1,4 +1,5 @@
 ;; Ruby
+(require 'enh-ruby-mode)
 
 (autoload 'enh-ruby-mode "enh-ruby-mode" "Major mode for ruby files" t)
 
@@ -16,6 +17,8 @@
                         (setq tab-width 4)
 						(flycheck-mode t)
 						(ruby-electric-mode t)
+						(set-face-foreground 'enh-ruby-op-face "gray40")
+						(set-face-foreground 'enh-ruby-string-delimiter-face "gray40")
 						))
 
 ;(autoload 'rubydb "rubydb3x" "run rubydb on program file in buffer" t)
@@ -24,5 +27,3 @@
 the directory containing file becomes the initial working directory
 and source-file directory for your debugger." t)
 
-(set-face-foreground 'enh-ruby-op-face "gray40")
-(set-face-foreground 'enh-ruby-string-delimiter-face "gray40")
