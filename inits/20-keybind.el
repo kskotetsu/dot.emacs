@@ -14,6 +14,12 @@
 (global-set-key (kbd "C-c l") 'windmove-right)
 (global-set-key (kbd "C-c k") 'windmove-up)
 
+;; バッファの大きさを広げたり縮めたりする
+(global-set-key (kbd "C-M-<up>") 'enlarge-window)
+(global-set-key (kbd "C-M-<down>") 'shrink-window)
+(global-set-key (kbd "C-M-<right>") 'enlarge-window-horizontally)
+(global-set-key (kbd "C-M-<left>") 'shrink-window-horizontally)
+
 ;; backspaceキーをインクリメンタルサーチ中のミニバッファで有効にする
 (define-key isearch-mode-map [backspace] 'isearch-delete-char)
 (define-key isearch-mode-map (kbd "C-h") 'isearch-delete-char)
