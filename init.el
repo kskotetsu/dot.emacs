@@ -1,6 +1,20 @@
 ;; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
 
 ;;--------------------------------------------------------------------;
+;; inits/*.elの分け方
+;; 　00-	emacs本体のグローバルな基本設定
+;; 　10-	表示周りなど、emacs動作の基本的な設定
+;; 　20-	全体のキーバインド等、個人的な基本設定
+;; 　50-	他の拡張の元になるような必須拡張
+;; 　60-	準必須拡張
+;; 　70-	通常の拡張
+;; 　80-	
+;; 　90-	各言語用モード拡張など
+;;  cocoa-	mac専用拡張
+;;  windows-ウィンドウズ専用拡張
+;;--------------------------------------------------------------------;
+
+;;--------------------------------------------------------------------;
 ;; 引数をload-pathに追加する．
 ;; (add-to-load-path "/hoge/hoge/")で/hoge/hogeがload-pathに追加される
 ;;--------------------------------------------------------------------
@@ -27,9 +41,6 @@
   (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
       (normal-top-level-add-subdirs-to-load-path)))
 
-(require 'exec-path-from-shell)
-(exec-path-from-shell-initialize)
-
 ;; -------------------------------------------------------------------
 ;; package
 (require 'package)
@@ -47,6 +58,21 @@
   '(
     ;; ここに使っているパッケージを書く。
     init-loader
+	exec-path-from-shell
+	session
+	gtags
+	anzu
+	guide-key
+	;guide-key-tip
+	;icicles
+	flycheck
+	flycheck-tip
+	smartrep
+	git-gutter-fringe+
+	enh-ruby-mode
+	ruby-electric
+	ruby-block
+	inf-ruby
     ))
 
 (let ((not-installed (loop for x in installing-package-list
@@ -56,6 +82,7 @@
     (package-refresh-contents)
     (dolist (pkg not-installed)
         (package-install pkg))))
+
 
 ;; -------------------------------------------------------------------
 ;; el-get

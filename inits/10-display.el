@@ -3,8 +3,7 @@
 
 ;; カラーテーマの設定
 (el-get 'sync 'color-theme-solarized)
-(load-theme 'solarized-dark t)
-;(color-theme-sanityinc-solarized-dark)
+(color-theme-solarized-dark)
 
 ; 長い行を折り返し表示しない
 (setq truncate-lines t)

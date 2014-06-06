@@ -26,6 +26,8 @@
 (setq recentf-max-menu-items 20)
 (setq recentf-max-saved-items 1000)
 
+;(ido-mode 1)
+
 ;;--------------------------------------------------------------------;
 ;; 日本語設定
 ;;--------------------------------------------------------------------
@@ -36,6 +38,7 @@
 (set-selection-coding-system 'utf-8)	; クリップボードの文字コード
 (set-terminal-coding-system 'utf-8)		; 端末の文字コード
 (set-keyboard-coding-system 'utf-8)
+(set-clipboard-coding-system 'cp932)
 
 ;; ファイル名の文字コード
 (require 'ucs-normalize)
@@ -96,4 +99,6 @@
 			    ))
 
 
+
+(server-start)
 
