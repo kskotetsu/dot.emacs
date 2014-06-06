@@ -61,6 +61,8 @@
 	exec-path-from-shell
 	gtags
 	anzu
+	guide-key
+	;guide-key-tip
 	;icicles
 	flycheck
 	flycheck-tip
