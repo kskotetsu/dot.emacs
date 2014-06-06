@@ -1,5 +1,6 @@
 (el-get 'sync 'helm)
 (el-get 'sync 'helm-ls-git)
+(el-get 'sync 'helm-ag)
 (require 'helm)
 
 ; for helm-git-project
@@ -57,6 +58,7 @@
 ;(global-set-key (kbd "M-C-;") 'helm-git-project)
 (global-set-key (kbd "M-C-;") 'helm-ls-git-ls)
 (global-set-key (kbd "C-x C-b") 'helm-buffers-list)
+(global-set-key (kbd "C-x b") 'helm-buffers-list)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 
 ;; C-hでバックスペースと同じように文字を削除  
@@ -73,5 +75,7 @@
 ;(global-set-key (kbd "C-M-o") 'helm-ag)
 
 ;(setq helm-ag-base-command "/cygdrive/c/Chocolatey/bin/ag.bat")
-(setq helm-ack-base-command "/cygdrive/c/Chocolatey/bin/ack.bat")
-(setq helm-c-ack-use-ack-grep nil)
+;(setq helm-ack-base-command "/cygdrive/c/Chocolatey/bin/ack.bat")
+;(setq helm-c-ack-use-ack-grep nil)
+
+

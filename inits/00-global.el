@@ -26,7 +26,7 @@
 (setq recentf-max-menu-items 20)
 (setq recentf-max-saved-items 1000)
 
-(ido-mode 1)
+;(ido-mode 1)
 
 ;;--------------------------------------------------------------------;
 ;; 日本語設定
