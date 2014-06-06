@@ -59,6 +59,7 @@
     ;; ここに使っているパッケージを書く。
     init-loader
 	exec-path-from-shell
+	session
 	gtags
 	anzu
 	guide-key
