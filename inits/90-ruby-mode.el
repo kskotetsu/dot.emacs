@@ -25,3 +25,4 @@ the directory containing file becomes the initial working directory
 and source-file directory for your debugger." t)
 
 (set-face-foreground 'enh-ruby-op-face "gray40")
+(set-face-foreground 'enh-ruby-string-delimiter-face "gray40")
