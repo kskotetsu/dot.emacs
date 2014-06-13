@@ -60,6 +60,8 @@
     init-loader
 	exec-path-from-shell
 	session
+	elscreen
+	;tabbar
 	gtags
 	anzu
 	guide-key
