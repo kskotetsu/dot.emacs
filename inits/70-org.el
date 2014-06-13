@@ -16,7 +16,7 @@
 ;;     (dolist (pkg not-installed)
 ;;         (package-install pkg))))
 ;(package-install 'org)
-(el-get 'sync 'org)
+;(el-get 'sync 'org)
 
 (setq org-startup-truncated nil)
 (setq org-return-follows-link t)

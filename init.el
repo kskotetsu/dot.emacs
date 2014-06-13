@@ -66,11 +66,19 @@
 	anzu
 	guide-key
 	;guide-key-tip
+	auto-complete
+	ac-dabbrev
 	;icicles
 	flycheck
 	flycheck-tip
+	yasnippet
+	helm
+	helm-ag
+	helm-c-yasnippet
+	helm-ls-git
 	smartrep
 	git-gutter-fringe+
+	org
 	enh-ruby-mode
 	ruby-electric
 	ruby-block

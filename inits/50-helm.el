@@ -1,6 +1,6 @@
-(el-get 'sync 'helm)
-(el-get 'sync 'helm-ls-git)
-(el-get 'sync 'helm-ag)
+;(el-get 'sync 'helm)
+;(el-get 'sync 'helm-ls-git)
+;(el-get 'sync 'helm-ag)
 (require 'helm)
 
 ; for helm-git-project
@@ -78,4 +78,4 @@
 ;(setq helm-ack-base-command "/cygdrive/c/Chocolatey/bin/ack.bat")
 ;(setq helm-c-ack-use-ack-grep nil)
 
-
+(global-set-key (kbd "C-z h") 'helm-elscreen)

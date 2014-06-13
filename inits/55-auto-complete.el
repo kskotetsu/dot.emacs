@@ -1,5 +1,5 @@
-(el-get 'sync 'auto-complete)
-(el-get 'sync 'ac-dabbrev)
+;(el-get 'sync 'auto-complete)
+;(el-get 'sync 'ac-dabbrev)
 
 (require 'auto-complete)
 (require 'ac-dabbrev)
