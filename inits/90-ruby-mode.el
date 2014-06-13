@@ -21,6 +21,8 @@
 						(set-face-foreground 'enh-ruby-string-delimiter-face "gray40")
 						))
 
+(setq flycheck-rubocop-lint-only t)
+
 ;(autoload 'rubydb "rubydb3x" "run rubydb on program file in buffer" t)
 (autoload 'rubydb "rubydb3x"
   "run rubydb on program file in buffer *gud-file*.
