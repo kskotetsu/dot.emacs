@@ -1,0 +1,11 @@
+*~
+*.elc
+elpa/
+el-get/
+url/
+snippets/
+auto-save-list/
+server/
+*#
+.session
+ac-comphist.dat
