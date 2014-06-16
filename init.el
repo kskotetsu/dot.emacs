@@ -79,6 +79,7 @@
 	smartrep
 	git-gutter-fringe+
 	org
+	open-junk-file
 	enh-ruby-mode
 	ruby-electric
 	ruby-block
