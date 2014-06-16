@@ -1,4 +1,5 @@
 ;(el-get 'sync 'yasnippet)
+(require 'yasnippet)
 
 (add-to-list 'yas-snippet-dirs
       "~/.emacs.d/snippets")
