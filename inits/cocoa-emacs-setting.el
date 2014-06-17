@@ -164,8 +164,9 @@
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
 
-;(el-get 'sync 'migemo)
-(package-install 'migemo)
+(el-get 'sync 'migemo)
+;(package-install 'migemo)
+
 ;(setq load-path (cons "~/.emacs.d/migemo/" load-path))
 ;(require 'migemo)
 (setq migemo-command "/usr/local/bin/cmigemo")
