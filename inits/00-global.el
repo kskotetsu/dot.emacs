@@ -67,8 +67,12 @@
 (setq auto-insert-directory "~/.emacs.d/insert/")
 (setq auto-insert-alist
 	  (nconc '(
-			   ("\\.cpp$" . ["template.cpp" my-template])
-			   ("\\.h$" . ["template.h" my-template])
+			   ("\\.el$"		.		["template.el" my-template])
+			   ("\\.cpp$"		.		["template.cpp" my-template])
+			   ("\\.h$"			.		["template.h" my-template])
+			   ("\\.py$"		.		["template.py" my-template])
+			   ("\\.rb$"		.		["template.rb" my-template])
+			   ("\\.sh$"		.		["template.sh" my-template])
 			   ) auto-insert-alist))
 
 (defvar template-replacements-alists
@@ -89,6 +93,9 @@
   (message "done."))
 
 (add-hook 'find-file-not-found-hooks 'auto-insert)
+
+;; シバン(ファイル先頭の#!/usr/bin/sh)があったら自動的に実行権限をつける
+(add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 
 (server-start)
 
