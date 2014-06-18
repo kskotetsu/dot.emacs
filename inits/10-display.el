@@ -33,10 +33,20 @@
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 (setq uniquify-ignore-buffers-re "*[^*]+*")
 
-
+;; タブ設定
 (setq tab-width 4)
 (setq default-tab-width 4)
 (setq c-basic-offset 4)
+
+;; 対応する括弧を表示
+(show-paren-mode t)
+(setq show-paren-delay 0)
+;(setq show-paren-style 'parenthesis)
+(setq show-paren-style 'mixed)
+(set-face-attribute 'show-paren-match-face nil
+                     :background nil :foreground "sienna2"
+                     :underline t :weight 'extra-bold)
+;(set-face-background 'show-paren-match "royal blue")
 
 (global-linum-mode nil)
 (setq linum-delay t)
@@ -49,3 +59,4 @@
 (setq scroll-conservatively 35
        scroll-margin 3
        scroll-step 1)
+
