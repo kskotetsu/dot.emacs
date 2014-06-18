@@ -72,6 +72,7 @@
 	flycheck
 	flycheck-tip
 	yasnippet
+	quickrun
 	helm
 	helm-ag
 	helm-c-yasnippet
