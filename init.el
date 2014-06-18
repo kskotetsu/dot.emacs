@@ -85,6 +85,7 @@
 	ruby-electric
 	ruby-block
 	inf-ruby
+	zeal-at-point
     ))
 
 (let ((not-installed (loop for x in installing-package-list
