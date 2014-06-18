@@ -46,10 +46,10 @@
 (setq locale-coding-system 'utf-8)
 
 ;; GCの頻度を増やす
-(setq gc-cons-threshold 100000) 
+;(setq gc-cons-threshold 100000) 
 
 ;; GCの頻度を減らす
-;(setq gc-cons-threshold 5242880)
+(setq gc-cons-threshold 5242880)
 
 ;;---------------------------------------------------------------------
 ;; 検索設定
