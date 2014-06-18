@@ -3,7 +3,7 @@
 (global-set-key "\C-h" 'delete-backward-char)
 
 (global-set-key '[f2] 'multi-term)
-(global-set-key '[f9] 'ff-find-other-file)
+(global-set-key '[f4] 'ff-find-other-file)
 
 ;; C-C bfpnでウィンドウ移動
 (global-set-key (kbd "C-c b") 'windmove-left)
