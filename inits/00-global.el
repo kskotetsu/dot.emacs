@@ -61,44 +61,34 @@
 ;(add-hook 'input-method-inactivate-hook
 ;(lambda() (set-cursor-color "white")))
 
-;; ------------------------------------------------------------------------
-;; C++モード
-; プリコンパイルヘッダの作り方
-; clang++ -cc1 -emit-pch -x c++-header ./stdafx.h -o stdafx.pch　-I(インクルードディレクトリ)
-(add-hook 'c++-mode-hook '(lambda ()
-			    ;(my-ac-cc-mode-setup)
-			    ;(gtags-mode 1)
-			    (setq c-auto-newline nil)
-				;;(linum-mode)
-			    (setq c++-tab-always-indent nil)		; [TAB] キーで、TABコードを入力
-			    (setq c-tab-always-indent nil)			; [TAB] キーで、TABコードを入力
-			    (setq indent-tabs-mode t)
-			    (show-paren-mode t)						;対応する括弧を表示
-			    (setq tab-width 4)
-			    (c-toggle-hungry-state -1)
-			    (setq truncate-lines t)					;長い行を折り返し表示しない
-				;(setq show-paren-style 'expression)
-			    (c-set-style "stroustrup")	
-			    (local-set-key "\C-m" 'newline-and-indent)
-			    (local-set-key "\C-j" 'newline-and-indent)
-			    (setq dabbrev-case-fold-search nil)
-				;; (setq comment-start "// "
-				;; 		comment-end " "
-				;; 		)
-			    (font-lock-fontify-buffer)
-			    (setq font-lock-keywords c++-font-lock-keywords-2)
-				;; http://d.hatena.ne.jp/i_s/20091026/1256557730
-			    (c-set-offset 'innamespace 0)			; namespace {}の中はインデントしない
-			    (c-set-offset 'arglist-close 0)			; 関数の引数リストの閉じ括弧はインデントしない
-			    (c-set-offset 'label 0)
-			    (c-set-offset 'substatement-open 0)
-			    (c-set-offset 'statement-case-intro 2)
-			    (c-set-offset 'inline-open 0)
-			    (c-set-offset 'case-label 2)
-			    
-			    ))
+;;---------------------------------------------------------------------
+;; auto-insert-mode
+(auto-insert-mode)
+(setq auto-insert-directory "~/.emacs.d/insert/")
+(setq auto-insert-alist
+	  (nconc '(
+			   ("\\.cpp$" . ["template.cpp" my-template])
+			   ("\\.h$" . ["template.h" my-template])
+			   ) auto-insert-alist))
 
+(defvar template-replacements-alists
+  '(("%file%"             . (lambda () (file-name-nondirectory (buffer-file-name))))
+    ("%file-without-ext%" . (lambda () (file-name-sans-extension (file-name-nondirectory (buffer-file-name)))))
+    ("%include-guard%"    . (lambda () (format "__%s_H__" (upcase (file-name-sans-extension (file-name-nondirectory buffer-file-name))))))
+    ("%time%" 			  . (lambda () (current-time-string)))
+	))
 
+(defun my-template ()
+  (time-stamp)
+  (mapc #'(lambda(c)
+        (progn
+          (goto-char (point-min))
+          (replace-string (car c) (funcall (cdr c)) nil)))
+    template-replacements-alists)
+  (goto-char (point-max))
+  (message "done."))
+
+(add-hook 'find-file-not-found-hooks 'auto-insert)
 
 (server-start)
 
