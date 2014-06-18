@@ -52,6 +52,7 @@
      ))
 
 (global-set-key (kbd "C-;") 'helm-mini)
+(global-set-key (kbd "C-:") 'helm-resume)
 ;(global-set-key (kbd "C-M-;") 'helm-resume)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
@@ -72,7 +73,11 @@
 (global-set-key (kbd "M-o") 'helm-occur)
 ; C-u C-M-oで再帰grep
 (global-set-key (kbd "C-M-o") 'helm-do-grep)
+(global-set-key (kbd "<f3>") 'helm-ag)
 ;(global-set-key (kbd "C-M-o") 'helm-ag)
+
+;; isearch中にM-oでhelmに移行
+(define-key isearch-mode-map (kbd "M-o") 'helm-occur-from-isearch)
 
 ;(setq helm-ag-base-command "/cygdrive/c/Chocolatey/bin/ag.bat")
 ;(setq helm-ack-base-command "/cygdrive/c/Chocolatey/bin/ack.bat")
