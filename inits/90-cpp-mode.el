@@ -1,9 +1,9 @@
 (el-get 'sync 'cc-mode+)
 
 (setq auto-mode-alist (append (list
-							   '("\\.cpp"		.		c-mode)
-							   '("\\.h$"		.		c-mode)
-							   '("\\.hpp$"		.		c-mode)
+							   '("\\.cpp"		.		c++-mode)
+							   '("\\.h$"		.		c++-mode)
+							   '("\\.hpp$"		.		c++-mode)
 							   )
 							  auto-mode-alist))
 
@@ -24,7 +24,7 @@
 ;; C++モード
 ; プリコンパイルヘッダの作り方
 ; clang++ -cc1 -emit-pch -x c++-header ./stdafx.h -o stdafx.pch　-I(インクルードディレクトリ)
-(add-hook 'c-mode-hook '(lambda ()
+(add-hook 'c++-mode-hook '(lambda ()
 			    (my-ac-cc-mode-setup)
 			    (gtags-mode 1)
 				(imenu-add-menubar-index)
