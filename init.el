@@ -63,6 +63,7 @@
 	elscreen
 	;tabbar
 	gtags
+	e2wm
 	anzu
 	guide-key
 	;guide-key-tip
