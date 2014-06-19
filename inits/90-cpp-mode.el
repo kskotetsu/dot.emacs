@@ -1,7 +1,9 @@
+(el-get 'sync 'cc-mode+)
+
 (setq auto-mode-alist (append (list
-							   '("\\.cpp"		.		c++-mode)
-							   '("\\.h$"		.		c++-mode)
-							   '("\\.hpp$"		.		c++-mode)
+							   '("\\.cpp"		.		c-mode)
+							   '("\\.h$"		.		c-mode)
+							   '("\\.hpp$"		.		c-mode)
 							   )
 							  auto-mode-alist))
 
@@ -22,11 +24,10 @@
 ;; C++モード
 ; プリコンパイルヘッダの作り方
 ; clang++ -cc1 -emit-pch -x c++-header ./stdafx.h -o stdafx.pch　-I(インクルードディレクトリ)
-(add-hook 'c++-mode-hook '(lambda ()
+(add-hook 'c-mode-hook '(lambda ()
 			    (my-ac-cc-mode-setup)
 			    (gtags-mode 1)
-			    (setq c-auto-newline nil)
-			    
+				(imenu-add-menubar-index)
 			    (setq c-auto-newline nil)
 														;;(linum-mode)
 			    (setq c++-tab-always-indent nil)		; [TAB] キーで、TABコードを入力
@@ -56,6 +57,9 @@
 			    (c-set-offset 'case-label 2)
 			    
 			    ))
+
+; (add-to-list 'speedbar-fetch-etags-parse-list
+;		'("\\.cpp" . speedbar-parse-c-or-c++tag))
 
 ;; ------------------------------------------------------------------------
 
