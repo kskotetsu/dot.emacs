@@ -22,9 +22,11 @@
 (setq visible-bell nil)
 
 ;; 最近開いたファイルをたくさん残す
-(recentf-mode)
+(require 'recentf)
+(setq recentf-auto-cleanup 'never) ;; 開けないファイルを消さないようにする。サーバー上のファイル対策
 (setq recentf-max-menu-items 20)
 (setq recentf-max-saved-items 1000)
+(recentf-mode)
 
 ;(ido-mode 1)
 
