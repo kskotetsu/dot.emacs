@@ -28,6 +28,12 @@
 (setq recentf-max-saved-items 1000)
 (recentf-mode)
 
+;; *.~ とかのバックアップファイルを作らない
+(setq make-backup-files nil)
+
+;; .#* とかのバックアップファイルを作らない
+(setq auto-save-default nil)
+
 ;(ido-mode 1)
 
 ;;--------------------------------------------------------------------;
