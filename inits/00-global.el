@@ -35,6 +35,15 @@
 (setq auto-save-default nil)
 
 ;(ido-mode 1)
+;(global-ede-mode 1)
+(require 'speedbar)
+(require 'semantic/sb)
+(semantic-mode 1)
+(require 'imenu)
+
+(defun my-semantic-hook ()
+  (imenu-add-to-menubar "TAGS"))
+(add-hook 'semantic-init-hooks 'my-semantic-hook)
 
 ;;--------------------------------------------------------------------;
 ;; 日本語設定
