@@ -1,5 +1,6 @@
-(el-get 'sync 'cc-mode+)
-
+;(el-get 'sync 'cc-mode+)
+;(require 'cc-mode+)
+(setq gtags-path-style 'relative)
 (setq auto-mode-alist (append (list
 							   '("\\.cpp"		.		c++-mode)
 							   '("\\.h$"		.		c++-mode)
@@ -28,8 +29,8 @@
 			    (my-ac-cc-mode-setup)
 			    (gtags-mode 1)
 				(imenu-add-menubar-index)
-			    (setq c-auto-newline nil)
-														;;(linum-mode)
+				(setq c-auto-newline nil)
+				;(linum-mode)
 			    (setq c++-tab-always-indent nil)		; [TAB] キーで、TABコードを入力
 			    (setq c-tab-always-indent nil)			; [TAB] キーで、TABコードを入力
 			    (setq indent-tabs-mode t)
