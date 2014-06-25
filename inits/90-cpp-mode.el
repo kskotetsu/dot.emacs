@@ -1,6 +1,6 @@
 ;(el-get 'sync 'cc-mode+)
 ;(require 'cc-mode+)
-(setq gtags-path-style 'relative)
+
 (setq auto-mode-alist (append (list
 							   '("\\.cpp"		.		c++-mode)
 							   '("\\.h$"		.		c++-mode)
