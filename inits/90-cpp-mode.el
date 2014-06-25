@@ -26,14 +26,15 @@
 ; プリコンパイルヘッダの作り方
 ; clang++ -cc1 -emit-pch -x c++-header ./stdafx.h -o stdafx.pch　-I(インクルードディレクトリ)
 (add-hook 'c++-mode-hook '(lambda ()
-				(custom-set-variables '(helm-mini-default-sources
-										'(helm-source-buffers-list
-										  helm-source-semantic
-										;helm-source-imenu
-										;helm-source-ls-git
-										  helm-source-recentf
-										  helm-source-buffer-not-found
-										  )))
+				(semantic-mode 1)
+				;; (custom-set-variables '(helm-mini-default-sources
+				;; 						'(helm-source-buffers-list
+				;; 						  ;helm-source-semantic
+				;; 						  ;helm-source-imenu
+				;; 						  ;helm-source-ls-git
+				;; 						  helm-source-recentf
+				;; 						  helm-source-buffer-not-found
+				;; 						  )))
 			    (my-ac-cc-mode-setup)
 			    (gtags-mode 1)
 				(imenu-add-to-menubar "Func")
