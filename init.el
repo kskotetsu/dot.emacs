@@ -89,6 +89,7 @@
 	ruby-block
 	inf-ruby
 	zeal-at-point
+	dash-at-point
     ))
 
 (let ((not-installed (loop for x in installing-package-list
