@@ -4,13 +4,21 @@
 (require 'helm)
 
 ; for helm-git-project
-(require 'cl)
+;(require 'cl)
 (require 'helm-config)
 (require 'helm-files)
 
 ;; 自動補完を無効
 (custom-set-variables '(helm-ff-auto-update-initial-value nil))
 
+(custom-set-variables '(helm-mini-default-sources
+						'(helm-source-buffers-list
+						  ;helm-source-semantic
+						  ;helm-source-imenu
+						  ;helm-source-ls-git
+						  helm-source-recentf
+						  helm-source-buffer-not-found
+						  )))
 ;; ;; List files in git repos
 ;; (defun helm-c-sources-git-project-for (pwd)
 ;;   (loop for elt in
@@ -75,6 +83,7 @@
 (global-set-key (kbd "C-M-o") 'helm-do-grep)
 (global-set-key (kbd "<f3>") 'helm-ag)
 ;(global-set-key (kbd "C-M-o") 'helm-ag)
+(global-set-key (kbd "<f8>") 'helm-semantic-or-imenu)
 
 ;; isearch中にM-oでhelmに移行
 (define-key isearch-mode-map (kbd "M-o") 'helm-occur-from-isearch)
