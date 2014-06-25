@@ -7,6 +7,8 @@
 ;(require 'cl)
 (require 'helm-config)
 (require 'helm-files)
+(require 'helm-ls-git)
+(require 'semantic)
 
 ;; 自動補完を無効
 (custom-set-variables '(helm-ff-auto-update-initial-value nil))
@@ -15,7 +17,7 @@
 						'(helm-source-buffers-list
 						  ;helm-source-semantic
 						  ;helm-source-imenu
-						  ;helm-source-ls-git
+						  helm-source-ls-git
 						  helm-source-recentf
 						  helm-source-buffer-not-found
 						  )))
