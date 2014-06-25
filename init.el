@@ -61,6 +61,8 @@
 	exec-path-from-shell
 	session
 	elscreen
+	undohist
+	undo-tree
 	;tabbar
 	gtags
 	e2wm
