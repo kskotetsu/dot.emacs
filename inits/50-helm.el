@@ -17,8 +17,8 @@
 						'(helm-source-buffers-list
 						  ;helm-source-semantic
 						  ;helm-source-imenu
-						  helm-source-ls-git
 						  helm-source-recentf
+						  helm-source-ls-git
 						  helm-source-buffer-not-found
 						  )))
 ;; ;; List files in git repos
