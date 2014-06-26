@@ -60,3 +60,17 @@
        scroll-margin 3
        scroll-step 1)
 
+;; 空白文字を可視化
+(global-whitespace-mode 1)
+(setq whitespace-style '(face tabs tab-mark spaces space-mark))
+(setq whitespace-space-regexp "\\(\x3000+\\)")
+(setq whitespace-display-mappings
+      '((space-mark ?\x3000 [?\□])
+        (tab-mark   ?\t   [?\xBB ?\t])
+        ))
+(set-face-foreground 'whitespace-space "firebrick")
+(set-face-background 'whitespace-space nil)
+(set-face-bold-p 'whitespace-space t)
+(set-face-foreground 'whitespace-tab "gray25")
+(set-face-background 'whitespace-tab nil)
+(set-face-underline  'whitespace-tab nil)
