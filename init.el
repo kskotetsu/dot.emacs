@@ -87,6 +87,7 @@
 	auto-highlight-symbol
 	highlight-symbol
 	enh-ruby-mode
+	ruby-mode
 	ruby-electric
 	ruby-block
 	inf-ruby

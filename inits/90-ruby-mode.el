@@ -18,10 +18,10 @@ See URL `http://batsov.com/rubocop/'."
    (error line-start
           (file-name) ":" line ":" column ": " (or "E" "F") ": " (message)
           line-end))
-  :modes (enh-ruby-mode motion-mode))
+  :modes (enh-ruby-mode motion-mode ruby-mode))
 
 
-(add-to-list 'auto-mode-alist '("\\.rb$" . enh-ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
 ;; (setq auto-mode-alist
 ;;       (append '(
 ;; 				("\\.rb$" . enh-ruby-mode)
@@ -35,14 +35,13 @@ See URL `http://batsov.com/rubocop/'."
                         (setq tab-width 4)
 						(flycheck-mode t)
 						(ruby-electric-mode t)
+						(erm-define-faces)
+						(set-face-foreground 'enh-ruby-op-face "gray40")
+						(set-face-foreground 'enh-ruby-string-delimiter-face "gray40")
 						))
 
-(eval-after-load "enh-ruby-mode"
-  '(progn
-	 (set-face-foreground 'enh-ruby-op-face "gray40")
-	 (set-face-foreground 'enh-ruby-string-delimiter-face "gray40")
-	 ))
-	 
+;(remove-hook 'enh-ruby-mode-hook 'erm-define-faces)
+
 ;(setq flycheck-rubocop-lint-only t)
 ;(setenv GEM_PATH "C:/Ruby193/lib/ruby/gems/1.9.1")
 
