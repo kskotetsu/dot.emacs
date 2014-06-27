@@ -13,7 +13,7 @@
 (defun flycheck-disable-on-temp-buffers ()
    (unless (and buffer-file-name (file-exists-p buffer-file-name) (flycheck-mode -1))))
 
-;(add-hook 'emacs-lisp-mode-hook 'flycheck-disable-on-temp-buffers)
+(add-hook 'emacs-lisp-mode-hook 'flycheck-disable-on-temp-buffers)
 
 ;; エラーに飛ぶ
 (require 'smartrep)
