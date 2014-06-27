@@ -62,6 +62,7 @@
 
 ;; 空白文字を可視化
 (global-whitespace-mode 1)
+
 (setq whitespace-style '(face tabs tab-mark spaces space-mark))
 (setq whitespace-space-regexp "\\(\x3000+\\)")
 (setq whitespace-display-mappings
@@ -74,3 +75,8 @@
 (set-face-foreground 'whitespace-tab "gray25")
 (set-face-background 'whitespace-tab nil)
 (set-face-underline  'whitespace-tab nil)
+
+;; 変数をハイライト
+(require 'auto-highlight-symbol)
+(global-auto-highlight-symbol-mode t)
+

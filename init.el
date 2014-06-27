@@ -84,6 +84,8 @@
 	git-gutter-fringe+
 	org
 	open-junk-file
+	auto-highlight-symbol
+	highlight-symbol
 	enh-ruby-mode
 	ruby-electric
 	ruby-block
