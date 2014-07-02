@@ -2,7 +2,7 @@
 ;; guide-key
 (require 'guide-key)
 
-(setq guide-key/guide-key-sequence '("C-x r" "C-x 4" "C-x c"))
+(setq guide-key/guide-key-sequence '("C-x r" "C-x 4" "C-x c" "M-s" "C-z" "M-g"))
 (setq guide-key/highlight-command-regexp "rectangle")
 (setq guide-key/popup-window-position 'bottom)
 
