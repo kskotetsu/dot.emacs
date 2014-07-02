@@ -84,7 +84,7 @@
 	git-gutter-fringe+
 	org
 	open-junk-file
-	auto-highlight-symbol
+	;auto-highlight-symbol
 	highlight-symbol
 	enh-ruby-mode
 	ruby-mode

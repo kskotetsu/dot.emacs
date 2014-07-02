@@ -37,6 +37,7 @@
 				;; 						  )))
 			    (my-ac-cc-mode-setup)
 			    (gtags-mode 1)
+				(highlight-symbol-mode)
 				(imenu-add-to-menubar "Func")
 				(setq c-auto-newline nil)
 				;(linum-mode)

@@ -77,6 +77,6 @@
 (set-face-underline  'whitespace-tab nil)
 
 ;; 変数をハイライト
-(require 'auto-highlight-symbol)
-(global-auto-highlight-symbol-mode t)
+;(require 'auto-highlight-symbol)
+;(global-auto-highlight-symbol-mode t)
 
