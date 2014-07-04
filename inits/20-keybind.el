@@ -20,6 +20,9 @@
 (global-set-key (kbd "C-M-<right>") 'enlarge-window-horizontally)
 (global-set-key (kbd "C-M-<left>") 'shrink-window-horizontally)
 
+;; 選択部分をいい感じに拡張する
+(global-set-key (kbd "C-,") 'er/expand-region)
+
 ;; backspaceキーをインクリメンタルサーチ中のミニバッファで有効にする
 (define-key isearch-mode-map [backspace] 'isearch-delete-char)
 (define-key isearch-mode-map (kbd "C-h") 'isearch-delete-char)

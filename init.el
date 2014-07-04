@@ -71,6 +71,7 @@
 	;guide-key-tip
 	auto-complete
 	ac-dabbrev
+	expand-region
 	;icicles
 	flycheck
 	flycheck-tip
