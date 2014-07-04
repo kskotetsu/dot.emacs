@@ -90,7 +90,8 @@
 	highlight-symbol
 	enh-ruby-mode
 	ruby-mode
-	ruby-electric
+	ruby-block
+	ruby-end
 	ruby-block
 	inf-ruby
 	epc
