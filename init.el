@@ -93,6 +93,9 @@
 	ruby-electric
 	ruby-block
 	inf-ruby
+	epc
+	python
+	jedi
 	zeal-at-point
 	dash-at-point
     ))
