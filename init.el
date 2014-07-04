@@ -63,6 +63,7 @@
 	elscreen
 	undohist
 	undo-tree
+	recentf-ext
 	;tabbar
 	gtags
 	e2wm
