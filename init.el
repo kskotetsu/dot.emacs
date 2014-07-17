@@ -60,6 +60,7 @@
     init-loader
 	exec-path-from-shell
 	session
+	projectile
 	elscreen
 	undohist
 	undo-tree

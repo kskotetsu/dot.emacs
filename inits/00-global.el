@@ -114,3 +114,5 @@
 ;; シバン(ファイル先頭の#!/usr/bin/sh)があったら自動的に実行権限をつける
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 
+;; プロジェクト管理
+(projectile-global-mode)
