@@ -84,6 +84,8 @@
 	helm-ag
 	helm-c-yasnippet
 	helm-ls-git
+	gist
+	helm-gist
 	smartrep
 	git-gutter-fringe+
 	org
