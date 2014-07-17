@@ -69,6 +69,7 @@
 	gtags
 	e2wm
 	anzu
+	sequential-command
 	guide-key
 	;guide-key-tip
 	auto-complete

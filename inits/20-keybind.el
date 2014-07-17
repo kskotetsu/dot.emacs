@@ -39,3 +39,11 @@
 ; \C-0 でデフォルトに戻す
 (global-set-key (kbd "C-0") (lambda () (interactive) (text-scale-increase 0)))
 
+;; sequential-command
+(require 'sequential-command-config)
+(global-set-key "\C-a" 'seq-home)
+(global-set-key "\C-e" 'seq-end)
+
+(when (require 'org nil t)
+  (define-key org-mode-map "\C-a" 'org-seq-home)
+  (define-key org-mode-map "\C-e" 'org-seq-end))
