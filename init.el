@@ -158,6 +158,10 @@
 ;(setq init-loader-show-log-after-init nil)
 (init-loader-load "~/.emacs.d/inits")
 
+;; init.logはエラーのときだけ
+(custom-set-variables
+ '(init-loader-show-log-after-init 'error-only))
+
 (cd "~/")
 (setq default-directory "~/")
 (setq command-line-default-directory "~/")
