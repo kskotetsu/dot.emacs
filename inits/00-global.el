@@ -68,6 +68,11 @@
 ;; GCの頻度を減らす
 (setq gc-cons-threshold 5242880)
 
+;; コンソールなどを閉じるときに確認しない
+(defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
+  "Prevent annoying \"Active processes exist\" query when you quit Emacs."
+  (flet ((process-list ())) ad-do-it))
+
 ;;---------------------------------------------------------------------
 ;; 検索設定
 (setq case-fold-search t)               ;検索では大文字小文字を区別しない

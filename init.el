@@ -80,6 +80,7 @@
 	flycheck-tip
 	yasnippet
 	popwin
+	multi-term
 	quickrun
 	helm
 	helm-ag
