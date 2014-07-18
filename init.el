@@ -100,6 +100,7 @@
 	ruby-end
 	ruby-block
 	inf-ruby
+	robe
 	epc
 	python
 	jedi

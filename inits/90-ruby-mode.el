@@ -2,6 +2,12 @@
 (require 'enh-ruby-mode)
 (require 'flycheck)
 
+;; (setenv "PATH" (concat (getenv "HOME") "/.rbenv/shims:"
+;;                        (getenv "HOME") "/.rbenv/bin:" (getenv "PATH")))
+;; (setq exec-path (cons (concat (getenv "HOME") "/.rbenv/shims")
+;;                       (cons (concat (getenv "HOME") "/.rbenv/bin") exec-path)))
+
+
 ;(autoload 'enh-ruby-mode "enh-ruby-mode" "Major mode for ruby files" t)
 
 (flycheck-define-checker ruby-rubocop
@@ -22,6 +28,8 @@ See URL `http://batsov.com/rubocop/'."
 
 
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
+(add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
+
 ;; (setq auto-mode-alist
 ;;       (append '(
 ;; 				("\\.rb$" . enh-ruby-mode)
@@ -29,6 +37,13 @@ See URL `http://batsov.com/rubocop/'."
 
 (add-hook 'ruby-mode-hook
 		  '(lambda()
+			 (require 'rcodetools)
+			 (require 'robe)
+			 (require 'ac-robe)
+			 (require 'ruby-block)
+
+;			 (rcodetools)
+			 (define-key ruby-mode-map (kbd "C-c C-d") 'xmp)
 			 (setq indent-tabs-mode nil)
 			 (setq indent-level 4)
 			 (setq python-indent 4)
@@ -44,8 +59,12 @@ See URL `http://batsov.com/rubocop/'."
 			 (setq ruby-block-highlight-toggle t)
 			 (setq ruby-block-highlight-toggle 'overlay)
 			 (erm-define-faces)
-			 (set-face-foreground 'enh-ruby-op-face "gray40")
-			 (set-face-foreground 'enh-ruby-string-delimiter-face "gray40")
+;			 (set-face-foreground 'enh-ruby-op-face "gray40")
+;			 (set-face-foreground 'enh-ruby-string-delimiter-face "gray40")
+			 (robe-mode)
+			 (robe-start)
+			 ;(inf-ruby)
+			 ;(inf-ruby-minor-mode)
 			 ))
 
 ;(remove-hook 'enh-ruby-mode-hook 'erm-define-faces)
@@ -59,3 +78,17 @@ See URL `http://batsov.com/rubocop/'."
 the directory containing file becomes the initial working directory
 and source-file directory for your debugger." t)
 
+; robe
+(autoload 'robe-mode "robe" "Code navigation, documentation lookup and completion for Ruby" t nil)
+;(autoload 'robe-ac-setup "robe-ac" "robe auto-complete" nil nil)
+(autoload 'ac-robe-setup "ac-robe" "auto-complete robe" nil nil)
+(setenv "PAGER" (executable-find "cat"))
+
+(push 'ac-source-robe ac-sources)
+(add-hook 'robe-mode-hook
+		  '(lambda()
+			 (robe-ac-setup)
+			 (robe-start)
+			 ))
+
+(add-hook 'robe-mode-hook 'ac-robe-setup)

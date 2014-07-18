@@ -10,4 +10,6 @@
 										("^\*helm .+\*$" :regexp t)
 										("*grep*" :noselect t)
                                         ("helm" :regexp t :height 0.4)
+										("robe-doc*" :noselect t :height 0.3)
+										("*ruby*" :noselect t :height 0.3)
                                         )))
