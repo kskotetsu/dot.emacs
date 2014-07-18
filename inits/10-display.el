@@ -60,6 +60,12 @@
        scroll-margin 3
        scroll-step 1)
 
+;; ターミナルではスクロールマージンを入れるとがくがくする
+(add-hook 'term-mode-hook
+		  (lambda ()
+			(make-local-variable 'scroll-margin)
+			(setq scroll-margin 0)))
+
 ;; 空白文字を可視化
 (global-whitespace-mode 1)
 
