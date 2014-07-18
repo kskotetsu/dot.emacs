@@ -79,6 +79,7 @@
 	flycheck
 	flycheck-tip
 	yasnippet
+	popwin
 	quickrun
 	helm
 	helm-ag

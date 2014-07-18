@@ -1,4 +1,4 @@
-(el-get 'sync 'popwin)
+;(el-get 'sync 'popwin)
 
 (when (require 'popwin)
   (setq helm-samewindow nil)
