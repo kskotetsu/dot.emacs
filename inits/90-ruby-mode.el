@@ -1,14 +1,26 @@
 ;; Ruby
+
+;; robe-modeを使うには次のgemが必要
+;;   gem install pry pry-doc method_source
+;; rubyファイルを開いてから M-x inf-ruby, M-x robe-start
+
+;; rcodetoolsを使うには次のgemが必要
+;;   gem rcodetools fastri
+
+
+
 (require 'enh-ruby-mode)
 (require 'flycheck)
+(require 'inf-ruby)
 
 ;; (setenv "PATH" (concat (getenv "HOME") "/.rbenv/shims:"
 ;;                        (getenv "HOME") "/.rbenv/bin:" (getenv "PATH")))
 ;; (setq exec-path (cons (concat (getenv "HOME") "/.rbenv/shims")
 ;;                       (cons (concat (getenv "HOME") "/.rbenv/bin") exec-path)))
 
+;(defvar ruby-program-name "irb1.9 --inf-ruby-mode"
+;  "*Program invoked by the run-ruby command")
 
-;(autoload 'enh-ruby-mode "enh-ruby-mode" "Major mode for ruby files" t)
 
 (flycheck-define-checker ruby-rubocop
   "A Ruby syntax and style checker using the RuboCop tool.
@@ -26,6 +38,7 @@ See URL `http://batsov.com/rubocop/'."
           line-end))
   :modes (enh-ruby-mode motion-mode ruby-mode))
 
+;(setq flycheck-rubocop-lint-only t)
 
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
 (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
@@ -57,20 +70,19 @@ See URL `http://batsov.com/rubocop/'."
 			 (electric-layout-mode t)
 			 (ruby-block-mode t)
 			 (setq ruby-block-highlight-toggle t)
+			 (inf-ruby-minor-mode t)
 			 (setq ruby-block-highlight-toggle 'overlay)
 			 (erm-define-faces)
 ;			 (set-face-foreground 'enh-ruby-op-face "gray40")
 ;			 (set-face-foreground 'enh-ruby-string-delimiter-face "gray40")
 			 (robe-mode)
-			 (robe-start)
+			 (robe-ac-setup)
 			 ;(inf-ruby)
 			 ;(inf-ruby-minor-mode)
 			 ))
 
 ;(remove-hook 'enh-ruby-mode-hook 'erm-define-faces)
 
-;(setq flycheck-rubocop-lint-only t)
-;(setenv GEM_PATH "C:/Ruby193/lib/ruby/gems/1.9.1")
 
 ;(autoload 'rubydb "rubydb3x" "run rubydb on program file in buffer" t)
 (autoload 'rubydb "rubydb3x"
@@ -79,16 +91,9 @@ the directory containing file becomes the initial working directory
 and source-file directory for your debugger." t)
 
 ; robe
-(autoload 'robe-mode "robe" "Code navigation, documentation lookup and completion for Ruby" t nil)
-;(autoload 'robe-ac-setup "robe-ac" "robe auto-complete" nil nil)
-(autoload 'ac-robe-setup "ac-robe" "auto-complete robe" nil nil)
+;(autoload 'robe-mode "robe" "Code navigation, documentation lookup and completion for Ruby" t nil)
+;;(autoload 'robe-ac-setup "robe-ac" "robe auto-complete" nil nil)
+;(autoload 'ac-robe-setup "ac-robe" "auto-complete robe" nil nil)
 (setenv "PAGER" (executable-find "cat"))
 
-(push 'ac-source-robe ac-sources)
-(add-hook 'robe-mode-hook
-		  '(lambda()
-			 (robe-ac-setup)
-			 (robe-start)
-			 ))
-
-(add-hook 'robe-mode-hook 'ac-robe-setup)
+;(push 'ac-source-robe ac-sources)
