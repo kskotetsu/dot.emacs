@@ -79,6 +79,7 @@
 	flycheck
 	flycheck-tip
 	yasnippet
+	rainbow-mode
 	popwin
 	multi-term
 	quickrun
