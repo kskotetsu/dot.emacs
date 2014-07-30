@@ -119,8 +119,12 @@
 ;; シバン(ファイル先頭の#!/usr/bin/sh)があったら自動的に実行権限をつける
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 
-;; dired２画面モードでコピー先等を反対のバッファに
+;; diredを2つのウィンドウで開いている時に、デフォルトの移動orコピー先をもう一方のdiredで開いているディレクトリにする
 (setq dired-dwim-target t)
+;; ディレクトリを再帰的にコピーする
+(setq dired-recursive-copies 'always)
+;; diredバッファでC-sした時にファイル名だけにマッチするように
+(setq dired-isearch-filenames t)
 
 ;; プロジェクト管理
 (projectile-global-mode)
