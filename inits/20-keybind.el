@@ -41,8 +41,8 @@
 
 ;; sequential-command
 (require 'sequential-command-config)
-(global-set-key "\C-a" 'seq-home)
-(global-set-key "\C-e" 'seq-end)
+;(global-set-key "\C-a" 'seq-home)
+;(global-set-key "\C-e" 'seq-end)
 
 (when (require 'org nil t)
   (define-key org-mode-map "\C-a" 'org-seq-home)
