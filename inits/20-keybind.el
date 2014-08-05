@@ -47,3 +47,10 @@
 (when (require 'org nil t)
   (define-key org-mode-map "\C-a" 'org-seq-home)
   (define-key org-mode-map "\C-e" 'org-seq-end))
+
+;; window-numbering
+(window-numbering-mode)
+
+;; ace-jump-mode
+(global-set-key (kbd "C-C SPC") 'ace-jump-mode)
+

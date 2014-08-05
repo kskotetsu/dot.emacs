@@ -69,6 +69,8 @@
 	gtags
 	e2wm
 	anzu
+	window-numbering
+	ace-jump-mode
 	sequential-command
 	guide-key
 	;guide-key-tip
