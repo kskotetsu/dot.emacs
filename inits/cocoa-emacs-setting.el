@@ -186,3 +186,9 @@
 (require 'exec-path-from-shell)
 (exec-path-from-shell-initialize)
 
+;; クラッシュするキーバインドを無効に
+(global-set-key (kbd "s-p") nil) ; ns-print-buffer
+(global-set-key (kbd "s-S") nil) ; ns-write-file-using-panel
+(global-set-key (kbd "s-o") nil) ; ns-open-file-using-panel
+(setq use-dialog-box nil)
+(setq flymake-gui-warnings-enabled nil)
