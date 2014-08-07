@@ -40,7 +40,9 @@ See URL `http://batsov.com/rubocop/'."
 
 ;(setq flycheck-rubocop-lint-only t)
 
-(add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
+(add-to-list 'auto-mode-alist
+			 '("\\.rb$" . ruby-mode)
+			 '("Rakefile" . ruby-mode))
 (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
 
 ;; (setq auto-mode-alist
