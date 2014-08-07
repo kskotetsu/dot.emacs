@@ -175,3 +175,8 @@
 (setq command-line-default-directory "~/")
 
 (server-start)
+
+;; desktop
+(desktop-load-default)
+(desktop-read)
+(desktop-save-mode)
