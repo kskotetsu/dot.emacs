@@ -133,3 +133,4 @@
 ;; cua-mode
 ;; Ctrl-RETで矩形選択スタート
 (cua-mode)
+(setq cua-enable-cua-keys nil)
