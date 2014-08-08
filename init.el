@@ -73,6 +73,7 @@
 	ace-jump-mode
 	sequential-command
 	guide-key
+	rainbow-delimiters
 	;guide-key-tip
 	auto-complete
 	ac-dabbrev

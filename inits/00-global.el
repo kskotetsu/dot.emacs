@@ -134,3 +134,6 @@
 ;; Ctrl-RETで矩形選択スタート
 (cua-mode)
 (setq cua-enable-cua-keys nil)
+
+;; rainbow-delimiters-mode
+(global-rainbow-delimiters-mode)
