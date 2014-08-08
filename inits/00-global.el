@@ -50,6 +50,7 @@
 ;;--------------------------------------------------------------------
 ; 言語を日本語にする
 ;(set-language-environment 'Japanese)
+(set-default-coding-systems 'utf-8-with-signature-dos)
 (set-language-environment 'utf-8)
 (prefer-coding-system 'utf-8)			; 極力UTF-8とする
 (set-selection-coding-system 'utf-8)	; クリップボードの文字コード
