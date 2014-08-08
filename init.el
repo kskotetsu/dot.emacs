@@ -91,9 +91,11 @@
 	helm-c-yasnippet
 	helm-ls-git
 	gist
+	magit
 	helm-gist
 	smartrep
 	git-gutter-fringe+
+	git-timemachine
 	org
 	open-junk-file
 	;auto-highlight-symbol
