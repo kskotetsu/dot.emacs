@@ -41,7 +41,12 @@
 
 ;; sequential-command
 (require 'sequential-command-config)
-;(global-set-key "\C-a" 'seq-home)
+
+;; c-aを繰り返すとインデント考慮の行頭、行頭への移動を繰り返す。
+(define-sequential-command my-seq-home
+  back-to-indentation beginning-of-line seq-return)
+
+(global-set-key "\C-a" 'my-seq-home)
 ;(global-set-key "\C-e" 'seq-end)
 
 (when (require 'org nil t)
