@@ -67,6 +67,18 @@
 ;;                   'append)
 ;; (add-to-list 'default-frame-alist '(font . "fontset-menlokakugo"))
 
+
+;;--------------------------------------------------------------------
+;; ファイル名が「フ゜ログラム」のようになるのを回避
+;;--------------------------------------------------------------------
+; http://blog.livedoor.jp/tek_nishi/tag/%E6%96%87%E5%AD%97%E5%8C%96%E3%81%91
+(require 'ucs-normalize)
+(set-file-name-coding-system 'utf-8-hfs)
+
+;;--------------------------------------------------------------------
+;; objc-mode
+;;--------------------------------------------------------------------
+
 ;(add-to-list 'auto-mode-alist '("\\.mm?$" . objc-mode))
 ;(add-to-list 'auto-mode-alist '("\\.h$" . objc-mode))
 (add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*\n@implementation" . objc-mode))
