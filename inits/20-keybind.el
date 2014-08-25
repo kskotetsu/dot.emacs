@@ -23,6 +23,9 @@
 ;; 選択部分をいい感じに拡張する
 (global-set-key (kbd "C-,") 'er/expand-region)
 
+;; 別のウィンドウへ移動
+(global-set-key (kbd "C-'") 'other-window)
+
 ;; backspaceキーをインクリメンタルサーチ中のミニバッファで有効にする
 (define-key isearch-mode-map [backspace] 'isearch-delete-char)
 (define-key isearch-mode-map (kbd "C-h") 'isearch-delete-char)
