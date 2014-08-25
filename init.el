@@ -110,6 +110,7 @@
 	epc
 	python
 	jedi
+	lua-mode
 	zeal-at-point
 	dash-at-point
     ))
