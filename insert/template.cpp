@@ -4,7 +4,7 @@
   @file		%file%
   @brief 	
   
-  @author	yamamura
+  @author	
   
   @note		
   

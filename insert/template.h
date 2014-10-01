@@ -1,9 +1,10 @@
+﻿// -*- coding: utf-8-with-signature-dos -*-
 //=============================================================================
 /*!
-  @file		%file%
+  @file	%file%
   @brief 	
   
-  @author	yamamura
+  @author	
   
   @note		
   
