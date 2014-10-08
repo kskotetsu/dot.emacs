@@ -1,4 +1,4 @@
-;;--------------------------------------------------------------------;
+﻿;;--------------------------------------------------------------------;
 ;; 基本設定
 ;;--------------------------------------------------------------------
 ;(if (not window-system)
@@ -72,7 +72,7 @@
 ;; コンソールなどを閉じるときに確認しない
 (defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
   "Prevent annoying \"Active processes exist\" query when you quit Emacs."
-  (flet ((process-list ())) ad-do-it))
+  (cl-flet ((process-list ())) ad-do-it))
 
 ;;---------------------------------------------------------------------
 ;; 検索設定
