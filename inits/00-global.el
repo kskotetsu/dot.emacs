@@ -78,6 +78,8 @@
 ;; 検索設定
 (setq case-fold-search t)               ;検索では大文字小文字を区別しない
 
+(global-ace-isearch-mode 1)				;
+
 ;IME ON/OFF時のカーソルカラー
 ;(add-hook 'input-method-activate-hook
 ;(lambda() (set-cursor-color "green")))

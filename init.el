@@ -90,6 +90,7 @@
 	helm-ag
 	helm-c-yasnippet
 	helm-ls-git
+	ace-isearch
 	gist
 	magit
 	helm-gist
