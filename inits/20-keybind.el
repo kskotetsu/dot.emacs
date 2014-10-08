@@ -64,3 +64,13 @@
 
 ;; anzu-mode
 (global-set-key (kbd "M-%") 'anzu-query-replace)
+
+
+(defun my-isearch-get-word()
+  "カーソル位置の単語をisearch"
+  (interactive)
+  (isearch-yank-string current-word))
+
+(define-key isearch-mode-map "\C-w" 'my-isearch-get-word)
+
+
