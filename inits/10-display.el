@@ -20,11 +20,11 @@
 
 ;;起動時のフレームサイズを設定する
 (setq initial-frame-alist
-      (append (list
-        '(width . 120)
-        '(height . 48)
-        )
-        initial-frame-alist))
+	  (append (list
+			   '(width . 120)
+			   '(height . 48)
+			   )
+			  initial-frame-alist))
 (setq default-frame-alist initial-frame-alist)
 
 ;; 重複ファイルを hoge<dir1>などのように
@@ -44,8 +44,8 @@
 ;(setq show-paren-style 'parenthesis)
 (setq show-paren-style 'mixed)
 (set-face-attribute 'show-paren-match-face nil
-                     :background nil :foreground "sienna2"
-                     :underline t :weight 'extra-bold)
+					:background nil :foreground "sienna2"
+					:underline t :weight 'extra-bold)
 ;(set-face-background 'show-paren-match "royal blue")
 
 ;; 行番号
@@ -66,8 +66,8 @@
 
 ;; scroll
 (setq scroll-conservatively 35
-       scroll-margin 3
-       scroll-step 1)
+	  scroll-margin 3
+	  scroll-step 1)
 
 ;; ターミナルではスクロールマージンを入れるとがくがくする
 (add-hook 'term-mode-hook
