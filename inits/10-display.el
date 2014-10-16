@@ -48,12 +48,21 @@
                      :underline t :weight 'extra-bold)
 ;(set-face-background 'show-paren-match "royal blue")
 
-(global-linum-mode nil)
+;; 行番号
+(global-linum-mode -1)
 (setq linum-delay t)
 
 ;; 行番号高速化
 (defadvice linum-schedule (around my-linum-schedule () activate)
   (run-with-idle-timer 0.2 nil #'linum-update-current))
+
+;; diff-hl.el
+;; バージョン管理下のコードをハイライト
+;; 行番号と同時に使用できない
+(global-diff-hl-mode)
+(diff-hl-margin-mode)
+(add-hook 'dired-mode-hook 'diff-hl-dired-mode)
+;(unless (window-system) (diff-hl-margin-mode))
 
 ;; scroll
 (setq scroll-conservatively 35
