@@ -56,10 +56,9 @@
  '(org-agenda-date ((t :weight bold))))
 
 (setq org-todo-keywords
-         '((sequence "TODO(t)" "FOCUS(f)" "ICAL(c)" "|" "DONE(d)")
-           (sequence "READ(r)" "EDIT(e)" "MAIL(m)" "PLAN(p)" "|")
+         '((sequence "TODO(t)" "DOING(i)" "ICAL(c)" "|" "DONE(d)")
            (sequence "CHECK(C)" "WAIT(w)" "STOP(s)" "|")
-           (sequence "REV1(1)" "REV2(2)" "REV3(3)" "|")))
+		   ))
  
 (setq org-remember-templates
       '(("Todo"		?t "** TODO %?\n   %i\n   %a\n   %t" "~/memo/note.org" "Inbox")
@@ -112,11 +111,5 @@
 		("CHECK"   :foreground "#FF9900" :underline t)
 		("ICAL"    :foreground "#33CC66")
 		("WAIT"    :foreground "#33CC66")
-		("EDIT"    :foreground "#FF33CC")
-		("READ"    :foreground "#9933CC")
-		("MAIL"    :foreground "#CC3300")
-		("PLAN"    :foreground "#FF6600")
-		("REV1"    :foreground "#3366FF")
-		("REV2"    :foreground "#3366FF")
-		("REV3"    :foreground "#FFFFFF")
+		("DOING"   :foreground "#FF33CC")
 		("STOP"    :foreground "#9999CC")))
