@@ -66,6 +66,7 @@
 	undo-tree
 	recentf-ext
 	;tabbar
+	diff-hl
 	gtags
 	e2wm
 	anzu
