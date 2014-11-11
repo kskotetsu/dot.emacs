@@ -143,3 +143,20 @@
 
 ;; rainbow-delimiters-mode
 (global-rainbow-delimiters-mode)
+
+;(add-to-list 'rainbow-delimiters-ignore-modes 'fundamental-mode) ;helmとの干渉回避
+;(custom-set-faces '(rainbow-delimiters-depth-1-face
+;					((t (:foreground "#586e75"))))) ;文字列の色と被るため,変更
+
+;; デスクトップモード
+(desktop-save-mode)
+(setq desktop-buffers-not-to-save
+	  (concat "\\("
+			  "^nn\\.a[0-9]+\\|\\.log\\|(ftp)\\|^tags\\|^TAGS"
+			  "\\|\\.emacs.*\\|\\.diary\\|\\.newsrc-dribble\\|\\.bbdb"
+			  "\\)$"))
+
+(add-to-list 'desktop-modes-not-to-save 'dired-mode)
+(add-to-list 'desktop-modes-not-to-save 'Info-mode)
+(add-to-list 'desktop-modes-not-to-save 'info-lookup-mode)
+(add-to-list 'desktop-modes-not-to-save 'fundamental-mode)
