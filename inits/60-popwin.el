@@ -7,7 +7,7 @@
 										("*Help*" :height 20)
 										("*guide-key*" :height 20)
 										("*Helm Completions*" :height 20)
-										("^\*helm .+\*$" :regexp t)
+										("^\*[Hh]elm .+\*$" :regexp t)
 										("*grep*" :noselect t)
                                         ("helm" :regexp t :height 0.4)
 										("robe-doc*" :noselect t :height 0.3)
