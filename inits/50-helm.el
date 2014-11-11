@@ -80,7 +80,9 @@
 (define-key helm-find-files-map (kbd "C-h") 'delete-backward-char)
 (define-key helm-find-files-map (kbd "TAB") 'helm-execute-persistent-action)
 
-(global-set-key (kbd "M-o") 'helm-occur)
+(define-key helm-buffer-map (kbd "C-r") 'helm-buffer-revert-persistent)
+
+(global-set-key (kbd "M-o") 'helm-swoop)
 ; C-u C-M-oで再帰grep
 (global-set-key (kbd "C-M-o") 'helm-do-grep)
 (global-set-key (kbd "<f3>") 'helm-ag)
@@ -88,7 +90,7 @@
 (global-set-key (kbd "<f8>") 'helm-semantic-or-imenu)
 
 ;; isearch中にM-oでhelmに移行
-(define-key isearch-mode-map (kbd "M-o") 'helm-occur-from-isearch)
+(define-key isearch-mode-map (kbd "M-o") 'helm-swoop-from-isearch)
 
 ;(setq helm-ag-base-command "/cygdrive/c/Chocolatey/bin/ag.bat")
 ;(setq helm-ack-base-command "/cygdrive/c/Chocolatey/bin/ack.bat")
