@@ -78,7 +78,10 @@
 ;; 検索設定
 (setq case-fold-search t)               ;検索では大文字小文字を区別しない
 
-(global-ace-isearch-mode 1)				;
+(global-ace-isearch-mode 1)
+;(global-ace-isearch-mode +1)
+(setq ace-isearch-use-function-from-isearch nil)
+(define-key isearch-mode-map (kbd "M-o") 'helm-multi-swoop-all-from-isearch)
 
 ;IME ON/OFF時のカーソルカラー
 ;(add-hook 'input-method-activate-hook
