@@ -52,9 +52,17 @@
 (global-set-key "\C-a" 'my-seq-home)
 ;(global-set-key "\C-e" 'seq-end)
 
+;; c-aを繰り返すと行頭・ヘッダ・上の階層への移動を繰り返す。
+(define-sequential-command my-org-seq-home
+  beginning-of-line outline-previous-visible-heading outline-up-heading seq-return)
+
+;; c-eを繰り返すと行頭・ヘッダ・下の階層への移動を繰り返す。
+(define-sequential-command my-org-seq-end
+  end-of-line outline-next-visible-heading outline-down-heading  seq-return)
+
 (when (require 'org nil t)
-  (define-key org-mode-map "\C-a" 'org-seq-home)
-  (define-key org-mode-map "\C-e" 'org-seq-end))
+  (define-key org-mode-map "\C-a" 'my-org-seq-home)
+  (define-key org-mode-map "\C-e" 'my-org-seq-end))
 
 ;; window-numbering
 (window-numbering-mode)
