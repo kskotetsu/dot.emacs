@@ -25,6 +25,7 @@
 
 ;; 別のウィンドウへ移動
 (global-set-key (kbd "C-'") 'other-window)
+(global-set-key (kbd "<home>") 'other-window)
 
 ;; backspaceキーをインクリメンタルサーチ中のミニバッファで有効にする
 (define-key isearch-mode-map [backspace] 'isearch-delete-char)
