@@ -92,8 +92,8 @@
 (set-face-underline  'whitespace-tab nil)
 
 ;; 変数をハイライト
-;(require 'auto-highlight-symbol)
-;(global-auto-highlight-symbol-mode t)
+(set-face-background 'highlight-symbol-face "dark slate blue")
+(set-face-foreground 'highlight-symbol-face "gray90")
 
 (defun window-toggle-division ()
   "ウィンドウ 2 分割時に、縦分割<->横分割"
