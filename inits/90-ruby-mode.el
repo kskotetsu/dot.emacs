@@ -50,7 +50,7 @@ See URL `http://batsov.com/rubocop/'."
 ;; 				("\\.rb$" . enh-ruby-mode)
 ;; 				)  auto-mode-alist))
 
-(defun my-ruby-mode
+(defun my-ruby-mode ()
   (require 'rcodetools)
   (require 'robe)
   (require 'ac-robe)
