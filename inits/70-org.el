@@ -86,6 +86,7 @@
 		))
 (define-key global-map "\C-cc" 'org-capture)
 (define-key global-map "\C-cr" 'org-capture)
+(define-key global-map "\C-cd" 'org-todo-list)
 
 (setq org-startup-truncated nil)
 (defun org-change-truncation()
