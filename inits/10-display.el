@@ -76,7 +76,7 @@
 			(setq scroll-margin 0)))
 
 ;; 空白文字を可視化
-(global-whitespace-mode t) ; 遅くなるのでやめ
+(global-whitespace-mode t)
 
 (setq whitespace-style '(face tabs tab-mark spaces space-mark))
 (setq whitespace-space-regexp "\\(\x3000+\\)")

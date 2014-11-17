@@ -20,6 +20,7 @@
   (setq tab-width 4)
   (flycheck-mode t)
   (jedi:setup)
+  (setq jedi:complete-on-dot t)
   (local-set-key (kbd "<f1> j") 'jedi:show-doc)
   (define-key python-mode-map (kbd "C-c C-b") 'python-add-breakpoint)
   (setq
@@ -38,7 +39,8 @@
 	
 
 (add-hook 'python-mode-hook 'my-python-mode)
-(setq jedi:complete-on-dot t)
 
+; for mac
 (eval-after-load "jedi"
-    '(setq jedi:server-command (list "/Users/kskotetsu/.pyenv/shims/python" jedi:server-script)))
+  '(setq jedi:server-command (list "/Users/kskotetsu/.pyenv/shims/python" jedi:server-script))
+  )
