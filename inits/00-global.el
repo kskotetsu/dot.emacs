@@ -76,9 +76,10 @@
 
 ;;---------------------------------------------------------------------
 ;; 検索設定
-(setq case-fold-search t)               ;検索では大文字小文字を区別しない
+(setq case-fold-search t)               ; 検索では大文字小文字を区別しない
 
 (global-ace-isearch-mode 1)
+(setq ace-isearch-input-idle-delay 1.0)	; ace-jumpに移行する時間を0.5->1.0secに
 ;(global-ace-isearch-mode +1)
 (setq ace-isearch-use-function-from-isearch nil)
 (define-key isearch-mode-map (kbd "M-o") 'helm-multi-swoop-all-from-isearch)
