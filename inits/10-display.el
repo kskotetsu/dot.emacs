@@ -5,8 +5,8 @@
 (el-get 'sync 'color-theme)
 (el-get 'sync 'color-theme-solarized)
 (el-get 'sync 'color-theme-tomorrow)
-(color-theme-solarized-dark)
-;(color-theme-tomorrow)
+;(color-theme-solarized-dark)
+(color-theme-molokai)
 
 ; 長い行を折り返し表示しない
 (setq truncate-lines t)
