@@ -6,6 +6,7 @@
 ; for helm-git-project
 ;(require 'cl)
 (require 'helm-config)
+(require 'helm-C-x-b)
 (require 'helm-files)
 (require 'helm-ls-git)
 (require 'semantic)
@@ -69,7 +70,8 @@
 ;(global-set-key (kbd "M-C-;") 'helm-git-project)
 (global-set-key (kbd "M-C-;") 'helm-ls-git-ls)
 (global-set-key (kbd "C-x C-b") 'helm-buffers-list)
-(global-set-key (kbd "C-x b") 'helm-buffers-list)
+;(global-set-key (kbd "C-x b") 'helm-buffers-list)
+(global-set-key (kbd "C-x b") 'helm-C-x-b)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 
 ;; C-hでバックスペースと同じように文字を削除  

@@ -91,6 +91,9 @@
 	helm-ag
 	helm-c-yasnippet
 	helm-ls-git
+	helm-package
+	helm-cmd-t
+	helm-projectile
 	ace-isearch
 	gist
 	magit
