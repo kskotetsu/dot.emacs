@@ -111,6 +111,6 @@
 	  '(("FOCUS"   :foreground "#FF0000")
 		("CHECK"   :foreground "#FF9900" :underline t)
 		("ICAL"    :foreground "#33CC66")
-		("WAIT"    :foreground "#33CC66")
+		("WAIT"    :foreground "#119944")
 		("DOING"   :foreground "#FF33CC")
 		("STOP"    :foreground "#9999CC")))
