@@ -2,5 +2,5 @@
 
 ;; for windows
 (eval-after-load "jedi"
-    '(setq jedi:server-command (list "/cygdrive/c/Python27/python" jedi:server-script)))
+    '(setq jedi:server-command (list "/Python27/python" jedi:server-script)))
 
