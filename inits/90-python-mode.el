@@ -14,10 +14,12 @@
 
 
 (defun my-python-mode ()
+  (setq imenu-create-index-function 'python-imenu-create-index)
   (setq indent-tabs-mode nil)
   (setq indent-level 4)
   (setq python-indent 4)
   (setq tab-width 4)
+  (setq python-indent-guess-indent-offset nil)
   (flycheck-mode t)
   (jedi:setup)
   (setq jedi:complete-on-dot t)
@@ -33,10 +35,10 @@
    python-shell-completion-module-string-code
    "';'.join(module_completion('''%s'''))\n"
    python-shell-completion-string-code
-   "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
+    "';'.join(get_ipython().Completer.all_completions('''%s'''))\n" )
   )
 
-	
+
 
 (add-hook 'python-mode-hook 'my-python-mode)
 

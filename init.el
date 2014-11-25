@@ -112,8 +112,10 @@
 	ruby-block
 	inf-ruby
 	robe
-	epc
+	ipython
 	python
+	;python-mode
+	epc
 	jedi
 	lua-mode
 	zeal-at-point

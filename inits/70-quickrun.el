@@ -3,6 +3,7 @@
 (push '("*quickrun*") popwin:special-display-config)
 
 (global-set-key (kbd "<f5>") 'quickrun)
+(global-set-key (kbd "s-<f5>") 'quickrun-with-arg)
 
 
 ;; ;; pythonの実行時にvirtualenvから実行ファイルを得る

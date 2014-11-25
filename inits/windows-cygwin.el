@@ -27,12 +27,13 @@
 ;; @ shell
 (require 'shell)
 (setq explicit-shell-file-name "bash.exe")
+;(setq explicit-shell-file-name "cmd.exe")
 ;(setq shell-command-switch "--noediting")
 (setq explicit-bash.exe-args '("--login" "--noediting" "-i"))
 (setq shell-file-name "bash.exe")
 
-;(setq explicit-shell-file-name "cmdproxy.exe")
-;(setq shell-file-name "cmdproxy.exe")
+(setq explicit-shell-file-name "cmdproxy.exe")
+(setq shell-file-name "cmdproxy.exe")
 
 ;; http://d.hatena.ne.jp/armbrust/20120909/134718360
 ;; fakecygcmdを使ってシェルのC-Cを効くようにする
@@ -81,3 +82,26 @@
 ;; (setq w32-quote-process-args ?\")
 
 ;; (setq shell-mode-hook 'my-shell-setup)
+
+
+;; -----------------------------------
+;; start-process での起動時に、fakecygpty.exe を経由させたいプログラム名を列挙する
+;; suffix に .exe が付くコマンドは、その suffix を記載しないこと
+(setq fakecygpty-program-list '("sh" "bash" "zsh" "ssh" "scp" "rsync" "sftp" "irb" "ipython" "ipdb" "pdb" "psql" "sqlite3"))
+
+;; start-process での起動時に、fakecygpty.exe を経由させたくないプロセスが走るバッファ名を列挙する
+(setq fakecygpty-exclusion-buffer-name-list '("*grep*" "*ag search\.*"))
+
+;; fakecygpty-program-list に登録されているプログラムを fakecygpty.exe 経由で起動する
+(defadvice start-process (around ad-start-process-to-fake last activate)
+  (let ((buffer-name (if (bufferp (ad-get-arg 1))
+                         (buffer-name (ad-get-arg 1))
+                       (ad-get-arg 1))))
+    (if (and (member (replace-regexp-in-string "\\.exe$" "" (file-name-nondirectory (ad-get-arg 2)))
+                     fakecygpty-program-list)
+             (not (member buffer-name fakecygpty-exclusion-buffer-name-list)))
+        (progn
+          (ad-set-args 3 (cons (ad-get-arg 2) (ad-get-args 3)))
+          (ad-set-arg 2 "fakecygpty")
+          ad-do-it)
+      ad-do-it)))
