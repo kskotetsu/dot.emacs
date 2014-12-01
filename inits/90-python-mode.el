@@ -12,8 +12,7 @@
   (insert "import ipdb; ipdb.set_trace()")
   (highlight-lines-matching-regexp "^[ ]*import ipdb; ipdb.set_trace()"))
 
-
-(defun my-python-mode ()
+(defun my-python-mode-common ()
   (setq imenu-create-index-function 'python-imenu-create-index)
   (setq indent-tabs-mode nil)
   (setq indent-level 4)
@@ -25,6 +24,11 @@
   (setq jedi:complete-on-dot t)
   (local-set-key (kbd "<f1> j") 'jedi:show-doc)
   (define-key python-mode-map (kbd "C-c C-b") 'python-add-breakpoint)
+  )
+
+(defun my-python-mode ()
+  (my-python-mode-common)
+	
   (setq
    python-shell-interpreter "ipython"
    python-shell-interpreter-args ""
@@ -44,5 +48,5 @@
 
 ; for mac
 (eval-after-load "jedi"
-  '(setq jedi:server-command (list "/Users/kskotetsu/.pyenv/shims/python" jedi:server-script))
+  '(setq jedi:server-command (list "~/.pyenv/shims/python" jedi:server-script))
   )

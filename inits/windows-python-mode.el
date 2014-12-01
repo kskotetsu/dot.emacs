@@ -1,17 +1,7 @@
 ; -*- coding: utf-8 -*-
 
 (defun my-python-mode ()
-  (setq imenu-create-index-function 'python-imenu-create-index)
-  (setq indent-tabs-mode nil)
-  (setq indent-level 4)
-  (setq python-indent 4)
-  (setq tab-width 4)
-  (setq python-indent-guess-indent-offset nil)
-  (flycheck-mode t)
-  (jedi:setup)
-  (setq jedi:complete-on-dot t)
-  (local-set-key (kbd "<f1> j") 'jedi:show-doc)
-  (define-key python-mode-map (kbd "C-c C-b") 'python-add-breakpoint)
+  (my-python-mode-common)
   (setq
    python-shell-interpreter "C:\\Python34\\python.exe"
    python-shell-interpreter-args
