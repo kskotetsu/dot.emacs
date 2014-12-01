@@ -135,7 +135,10 @@
 
 ;; プロジェクト管理
 (projectile-global-mode)
+(setq projectile-tags-file-name "GTAGS")
+(setq projectile-tags-command "gtags -f %s %s")
 (setq projectile-project-root-files (quote ("rebar.config" "project.clj" "pom.xml" "build.sbt" "build.gradle" "Gemfile" "requirements.txt" "package.json" "gulpfile.js" "Gruntfile.js" "bower.json" "composer.json" "Cargo.toml" "mix.exs" ".projectile")))
+
 
 ;; cua-mode
 ;; Ctrl-RETで矩形選択スタート

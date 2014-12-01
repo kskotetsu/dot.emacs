@@ -56,6 +56,9 @@
 (defadvice linum-schedule (around my-linum-schedule () activate)
   (run-with-idle-timer 0.2 nil #'linum-update-current))
 
+;; カーソル行をハイライト
+(global-hl-line-mode t)
+
 ;; diff-hl.el
 ;; バージョン管理下のコードをハイライト
 ;; 行番号と同時に使用できない
@@ -111,3 +114,32 @@
     (other-window 1)
     (switch-to-buffer other-buf)
     (other-window -1)))
+
+;; other-windowのときにいい感じに分割する
+;; http://blog.shibayu36.org/entry/2012/12/18/161455
+(defun split-window-vertically-n (num_wins)
+  (interactive "p")
+  (if (= num_wins 2)
+      (split-window-vertically)
+    (progn
+      (split-window-vertically
+       (- (window-height) (/ (window-height) num_wins)))
+      (split-window-vertically-n (- num_wins 1)))))
+
+(defun split-window-horizontally-n (num_wins)
+  (interactive "p")
+  (if (= num_wins 2)
+      (split-window-horizontally)
+    (progn
+      (split-window-horizontally
+       (- (window-width) (/ (window-width) num_wins)))
+      (split-window-horizontally-n (- num_wins 1)))))
+
+(defun other-window-or-split ()
+  (interactive)
+  (when (one-window-p)
+    (if (>= (window-body-width) 270)
+        (split-window-horizontally-n 3)
+      (split-window-horizontally)))
+  (other-window 1))
+

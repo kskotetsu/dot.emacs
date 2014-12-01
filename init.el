@@ -61,6 +61,8 @@
 	exec-path-from-shell
 	session
 	projectile
+	migemo
+	ggtags
 	elscreen
 	undohist
 	undo-tree
