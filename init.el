@@ -116,11 +116,11 @@
 	ruby-mode
 	ruby-block
 	ruby-end
-	ruby-block
 	inf-ruby
 	robe
 	ipython
 	python
+	pyenv-mode
 	;python-mode
 	epc
 	jedi
