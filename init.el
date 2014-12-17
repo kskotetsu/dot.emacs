@@ -89,6 +89,7 @@
 	yasnippet
 	rainbow-mode
 	popwin
+	imenu-anywhere
 	multi-term
 	quickrun
 	bm
