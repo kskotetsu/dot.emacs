@@ -99,3 +99,13 @@
 ;(setq helm-c-ack-use-ack-grep nil)
 
 (global-set-key (kbd "C-z h") 'helm-elscreen)
+
+
+(require 'helm-bm)
+;; migemoくらいつけようね
+(push '(migemo) helm-source-bm)
+;; annotationはあまり使わないので仕切り線で表示件数減るの嫌
+(setq helm-source-bm (delete '(multiline) helm-source-bm))
+(global-set-key (kbd "C-x c b") 'helm-bm)
+
+(global-set-key (kbd "C-x c p") 'helm-projectile)

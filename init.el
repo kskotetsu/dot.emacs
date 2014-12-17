@@ -91,13 +91,15 @@
 	popwin
 	multi-term
 	quickrun
-	helm
+	bm
+	helm 
 	helm-ag
 	helm-c-yasnippet
 	helm-ls-git
 	helm-package
 	helm-cmd-t
 	helm-projectile
+	helm-bm
 	ace-isearch
 	gist
 	magit

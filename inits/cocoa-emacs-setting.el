@@ -125,7 +125,7 @@
   (setq offset (format "%d" (point)))
   (call-process "~/bin/open_in_xcode.py" nil t nil filename offset))  ;; open_in_xcode.pyを叩く
 
-(global-set-key "\C-cx" 'open-in-xcode)
+;(global-set-key "\C-cx" 'open-in-xcode)
 
 ;; シミュレータ起動スクリプトをelispでラップ
 (defun xcode-debug ()
@@ -133,7 +133,7 @@
   (call-process "~/bin/xcode_debug.py" nil t nil))
 
 ;; キーの割当
-(global-set-key "\C-cg" 'xcode-debug)
+;(global-set-key "\C-cg" 'xcode-debug)
 
 ;; ビルド
 (defun xcode-build ()
@@ -141,7 +141,7 @@
   (call-process "~/bin/xcode_build.py" nil t nil))
 
 ;; キーの割当
-(global-set-key "\C-cb" 'xcode-build)
+;(global-set-key "\C-cb" 'xcode-build)
 
 ;; (require 'anything-apple-docset)
 ;; ;; 違うバッファで開きたければ
