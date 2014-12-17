@@ -65,6 +65,7 @@
 	ggtags
 	elscreen
 	elscreen-persist
+	switch-window
 	undohist
 	undo-tree
 	recentf-ext

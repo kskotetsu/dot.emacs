@@ -24,8 +24,10 @@
 (global-set-key (kbd "C-,") 'er/expand-region)
 
 ;; 別のウィンドウへ移動
+(setq switch-window-shortcut-style 'qwerty)
 (global-set-key (kbd "C-'") 'other-window-or-split)
 (global-set-key (kbd "C-x o") 'other-window-or-split)
+(global-set-key (kbd "C-x o") 'switch-window)
 (global-set-key (kbd "<home>") 'other-window-or-split)
 
 ;; backspaceキーをインクリメンタルサーチ中のミニバッファで有効にする
