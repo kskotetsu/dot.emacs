@@ -73,6 +73,7 @@
 
 ;; ace-jump-mode
 (global-set-key (kbd "C-C SPC") 'ace-jump-mode)
+(global-set-key (kbd "C-.") 'ace-jump-mode)
 
 ;; anzu-mode
 (global-set-key (kbd "M-%") 'anzu-query-replace)
