@@ -1,4 +1,5 @@
 (elscreen-start)
+(elscreen-persist-mode 1)
 
 ;; タブの×ボタンを非表示に
 (setq elscreen-tab-display-kill-screen nil)

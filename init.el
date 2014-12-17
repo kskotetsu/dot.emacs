@@ -64,6 +64,7 @@
 	migemo
 	ggtags
 	elscreen
+	elscreen-persist
 	undohist
 	undo-tree
 	recentf-ext
