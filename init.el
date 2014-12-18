@@ -166,12 +166,12 @@
                :url "http://www.namazu.org/~tsuchiya/elisp/dabbrev-highlight.el"
 			   :load-path (".")
 			   )
-        (:name migemo
-               :description "migemo"
-               :type http
-               :url "https://raw.githubusercontent.com/emacs-jp/migemo/master/migemo.el"
-			   :load-path (".")
-			   )
+        ;; (:name migemo
+        ;;        :description "migemo"
+        ;;        :type http
+        ;;        :url "https://raw.githubusercontent.com/emacs-jp/migemo/master/migemo.el"
+		;; 	   :load-path (".")
+		;; 	   )
 	))
 
 (el-get 'sync)
