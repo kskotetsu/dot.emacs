@@ -93,7 +93,9 @@
 	multi-term
 	quickrun
 	bm
-	helm 
+	calfw
+	calfw-gcal
+	helm
 	helm-ag
 	helm-c-yasnippet
 	helm-ls-git
