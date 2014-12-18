@@ -42,21 +42,21 @@
 		(800 1000 1200 1400 1600 1800 2000 2200 2400 2600)))
 
 ;; (custom-set-faces(defadvice org-agenda (around org-agenda-around)
-;;   (let ((system-time-locale "English"))
-;;     ad-do-it))
+;; 				   (let ((system-time-locale "English"))
+;; 					 ad-do-it)))
 
 (defadvice org-agenda-redo (around org-agenda-redo-around)
   (let ((system-time-locale "English"))
     ad-do-it))
 
 (custom-set-variables
-  '(org-agenda-format-date "%Y/%m/%d (%a)"))
+ '(org-agenda-format-date "%Y/%m/%d "));%aは文字化けする
 
 (custom-set-faces
  '(org-agenda-date ((t :weight bold))))
 
 (setq org-todo-keywords
-         '((sequence "TODO(t)" "DOING(i)" "ICAL(c)" "|" "DONE(d)")
+         '((sequence "TODO(t)" "DOING(i)" "|" "DONE(d)")
            (sequence "CHECK(C)" "WAIT(w)" "STOP(s)" "|")
 		   ))
  
@@ -110,7 +110,6 @@
 (setq org-todo-keyword-faces
 	  '(("FOCUS"   :foreground "#FF0000")
 		("CHECK"   :foreground "#FF9900" :underline t)
-		("ICAL"    :foreground "#33CC66")
 		("WAIT"    :foreground "#119944")
 		("DOING"   :foreground "#FF33CC")
 		("STOP"    :foreground "#9999CC")))
