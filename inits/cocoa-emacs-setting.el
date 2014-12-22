@@ -26,17 +26,26 @@
 (setq default-input-method "MacOSX")
 ; (mac-setup-inline-input-method)
 
-; for ime-patch
+; for ime-inline-patch
 (global-set-key (kbd "M-¥") (lambda () (interactive) (insert "¥")))
 
-(mac-set-input-method-parameter "com.google.inputmethod.Japanese.base" `title "あ")
-;; カーソルの色
-(mac-set-input-method-parameter "com.google.inputmethod.Japanese.base" `cursor-color "red")
-(mac-set-input-method-parameter "com.google.inputmethod.Japanese.Roman" `cursor-color "white")
-(mac-set-input-method-parameter "com.apple.keylayout.US" 'cursor-color "white")
+(cond
+ ((eq window-system 'ns)
+  (lambda() (
+			 (mac-set-input-method-parameter "com.google.inputmethod.Japanese.base" `title "あ")
+			 ;; カーソルの色
+			 (mac-set-input-method-parameter "com.google.inputmethod.Japanese.base" `cursor-color "red")
+			 (mac-set-input-method-parameter "com.google.inputmethod.Japanese.Roman" `cursor-color "white")
+			 (mac-set-input-method-parameter "com.apple.keylayout.US" 'cursor-color "white")
+			 ;; backslash を優先
+			 (mac-translate-from-yen-to-backslash)
+			 ))))
 
-;; backslash を優先
-(mac-translate-from-yen-to-backslash)
+;; emacs mac portならmac-auto-ascii-modeに
+(cond
+ ((eq window-system 'mac)
+  (mac-auto-ascii-mode t)))
+
 
 ;;--------------------------------------------------------------------
 ;; font
