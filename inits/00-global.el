@@ -161,3 +161,12 @@
 (add-to-list 'desktop-modes-not-to-save 'Info-mode)
 (add-to-list 'desktop-modes-not-to-save 'info-lookup-mode)
 (add-to-list 'desktop-modes-not-to-save 'fundamental-mode)
+
+
+;; foreign-regexp
+(require 'foreign-regexp)
+
+(custom-set-variables
+ '(foreign-regexp/regexp-type 'ruby) ;; Choose your taste of foreign regexp
+                                    ;; from 'perl, 'ruby or 'javascript.
+ '(reb-re-syntax 'foreign-regexp))   ;; Tell re-builder to use foreign regex.

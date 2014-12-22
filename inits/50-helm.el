@@ -68,7 +68,8 @@
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 ;(global-set-key (kbd "M-C-;") 'helm-git-project)
-(global-set-key (kbd "M-C-;") 'helm-ls-git-ls)
+;(global-set-key (kbd "M-C-;") 'helm-ls-git-ls)
+(global-set-key (kbd "M-C-;") 'helm-projectile)
 (global-set-key (kbd "C-x C-b") 'helm-buffers-list)
 ;(global-set-key (kbd "C-x b") 'helm-buffers-list)
 (global-set-key (kbd "C-x b") 'helm-C-x-b)
@@ -90,6 +91,7 @@
 (global-set-key (kbd "<f3>") 'helm-ag)
 ;(global-set-key (kbd "C-M-o") 'helm-ag)
 (global-set-key (kbd "<f8>") 'helm-semantic-or-imenu)
+;(global-set-key (kbd "<f8>") 'helm-imenu-anywhere)
 
 ;; isearch中にM-oでhelmに移行
 (define-key isearch-mode-map (kbd "M-o") 'helm-swoop-from-isearch)
@@ -102,10 +104,10 @@
 
 
 (require 'helm-bm)
-;; migemoくらいつけようね
+;; migemo対応
 (push '(migemo) helm-source-bm)
-;; annotationはあまり使わないので仕切り線で表示件数減るの嫌
+;; annotationは表示しない
 (setq helm-source-bm (delete '(multiline) helm-source-bm))
-(global-set-key (kbd "C-x c b") 'helm-bm)
 
+(global-set-key (kbd "C-x c b") 'helm-bm)
 (global-set-key (kbd "C-x c p") 'helm-projectile)
