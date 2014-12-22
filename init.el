@@ -104,6 +104,9 @@
 	helm-cmd-t
 	helm-projectile
 	helm-bm
+	wgrep
+	wgrep-helm
+	wgrep-ag
 	ace-isearch
 	gist
 	magit
