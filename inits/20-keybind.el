@@ -86,5 +86,5 @@
 
 (define-key isearch-mode-map "\C-w" 'my-isearch-get-word)
 
-(require 'misc)
-(global-set-key (kbd "M-z") 'zap-up-to-char)
+;(require 'misc)
+(global-set-key (kbd "M-z") 'ace-jump-zap-up-to-char)

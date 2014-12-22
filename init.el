@@ -76,6 +76,7 @@
 	anzu
 	window-numbering
 	ace-jump-mode
+	ace-jump-zap
 	sequential-command
 	guide-key
 	rainbow-delimiters
