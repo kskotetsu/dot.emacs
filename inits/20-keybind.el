@@ -72,8 +72,8 @@
 (window-numbering-mode)
 
 ;; ace-jump-mode
-(global-set-key (kbd "C-C SPC") 'ace-jump-mode)
-(global-set-key (kbd "C-.") 'ace-jump-mode)
+(global-set-key (kbd "C-C SPC") 'ace-jump-char-mode)
+(global-set-key (kbd "C-.") 'ace-jump-char-mode)
 
 ;; anzu-mode
 (global-set-key (kbd "M-%") 'anzu-query-replace)
