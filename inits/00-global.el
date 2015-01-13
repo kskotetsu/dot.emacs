@@ -74,6 +74,15 @@
   "Prevent annoying \"Active processes exist\" query when you quit Emacs."
   (cl-flet ((process-list ())) ad-do-it))
 
+;; 日付のフォーマットを英語にするためにロケール変更
+(setq system-time-locale "C")
+
+;; 日付挿入コマンド
+(defun insert-current-time()
+  (interactive)
+  (insert (format-time-string "%Y-%m-%d(%a) %H:%M:%S" (current-time))))
+;;(define-key global-map "\C-cd" `insert-current-time)
+
 ;;---------------------------------------------------------------------
 ;; 検索設定
 (setq case-fold-search t)               ; 検索では大文字小文字を区別しない
