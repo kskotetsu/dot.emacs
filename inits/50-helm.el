@@ -86,6 +86,11 @@
 (define-key helm-buffer-map (kbd "C-r") 'helm-buffer-revert-persistent)
 
 (global-set-key (kbd "M-o") 'helm-swoop)
+
+;; helm-swoop開始時にカーソル下のシンボルを検索しようとするのをやめる
+(setq helm-swoop-pre-input-function
+	  (lambda () nil))
+
 ; C-u C-M-oで再帰grep
 (global-set-key (kbd "C-M-o") 'helm-do-grep)
 (global-set-key (kbd "<f3>") 'helm-ag)
