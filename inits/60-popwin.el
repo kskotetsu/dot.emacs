@@ -10,7 +10,7 @@
 										("^\*[Hh]elm .+\*$" :regexp t :height 30)
 										("*grep*" :noselect t)
 										("*Org Agenda*" :noselect t)
-										("*Org todo*" :noselect t)
+										(" *Org todo*" :noselect t)
 										(" *Agenda Commands*" :noselect t)
                                         ("helm" :regexp t :height 0.6)
 										("robe-doc*" :noselect t :height 0.3)

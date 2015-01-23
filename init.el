@@ -105,6 +105,7 @@
 	helm-cmd-t
 	helm-projectile
 	helm-bm
+	helm-gtags
 	wgrep
 	wgrep-helm
 	wgrep-ag
