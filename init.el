@@ -114,7 +114,7 @@
 	magit
 	helm-gist
 	smartrep
-	git-gutter-fringe+
+	;git-gutter-fringe+
 	git-timemachine
 	org
 	open-junk-file
