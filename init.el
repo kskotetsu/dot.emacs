@@ -69,7 +69,7 @@
 	undohist
 	undo-tree
 	recentf-ext
-	foreign-regexp
+	;foreign-regexp
 	;tabbar
 	diff-hl
 	gtags

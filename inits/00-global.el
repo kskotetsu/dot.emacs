@@ -173,9 +173,10 @@
 
 
 ;; foreign-regexp
-(require 'foreign-regexp)
+;; (require 'foreign-regexp)
 
-(custom-set-variables
- '(foreign-regexp/regexp-type 'ruby) ;; Choose your taste of foreign regexp
-                                    ;; from 'perl, 'ruby or 'javascript.
- '(reb-re-syntax 'foreign-regexp))   ;; Tell re-builder to use foreign regex.
+;; (custom-set-variables
+;;  '(foreign-regexp/regexp-type 'ruby) ;; Choose your taste of foreign regexp
+;;                                     ;; from 'perl, 'ruby or 'javascript.
+;;  '(reb-re-syntax 'foreign-regexp))   ;; Tell re-builder to use foreign regex.
+
