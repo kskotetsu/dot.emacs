@@ -7,6 +7,7 @@
 							   '("\\.cgfx"		.		cg-mode)
 							   '("\\.hlsl"		.		cg-mode)
 							   '("\\.cg"		.		cg-mode)
+							   '("\\.fx"		.		cg-mode)
 							   '("\\.gxsl"		.		cg-mode)
 							   '("\\.gxsh"		.		cg-mode)
 							   '("\\.vsh"		.		cg-mode)
