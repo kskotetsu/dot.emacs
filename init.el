@@ -129,12 +129,15 @@
 	ipython
 	python
 	pyenv-mode
+	yaml-mode
+	ansible
 	;python-mode
 	epc
 	jedi
 	lua-mode
 	zeal-at-point
 	dash-at-point
+	dockerfile-mode
     ))
 
 (let ((not-installed (loop for x in installing-package-list
