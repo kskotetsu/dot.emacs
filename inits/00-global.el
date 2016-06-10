@@ -88,10 +88,11 @@
 (setq case-fold-search t)               ; 検索では大文字小文字を区別しない
 
 (global-ace-isearch-mode 1)
-(setq ace-isearch-input-idle-delay 1.0)	; ace-jumpに移行する時間を0.5->1.0secに
+(setq ace-isearch-jump-delay 1.0)	; ace-jumpに移行する時間を0.5->1.0secに
 ;(global-ace-isearch-mode +1)
 (setq ace-isearch-use-function-from-isearch nil)
 (define-key isearch-mode-map (kbd "M-o") 'helm-multi-swoop-all-from-isearch)
+;(setq ace-jump-mode-case-fold nil)
 
 ;IME ON/OFF時のカーソルカラー
 ;(add-hook 'input-method-activate-hook
@@ -147,7 +148,15 @@
 (setq projectile-tags-file-name "GTAGS")
 (setq projectile-tags-command "gtags -f %s %s")
 (setq projectile-project-root-files (quote ("rebar.config" "project.clj" "pom.xml" "build.sbt" "build.gradle" "Gemfile" "requirements.txt" "package.json" "gulpfile.js" "Gruntfile.js" "bower.json" "composer.json" "Cargo.toml" "mix.exs" ".projectile")))
+;(when windows-p
+;  (setq projectile-indexing-method 'alien))
 
+;; 大きいプロジェクトだと劇的に改善するらしい.
+(setq projectile-enable-caching t)
+
+;; ファイルの種別ごとの文字コード
+;(modify-coding-system-alist 'file "\\.java\\'" 'utf-8) ;; Java - See more at: http://yohshiy.blog.fc2.com/blog-entry-273.html#sthash.LB7sMm9C.dpuf
+;(modify-coding-system-alist 'file "\\*vc-change-log\\*" 'shift_jis)
 
 ;; cua-mode
 ;; Ctrl-RETで矩形選択スタート
