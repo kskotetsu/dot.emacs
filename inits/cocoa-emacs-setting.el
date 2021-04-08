@@ -120,6 +120,8 @@
        ("\\.cxx$" (".hh" ".h"))
        ("\\.cpp$" (".hpp" ".hh" ".h"))
 
+	   ("\\.cgfx$" (".fx"))
+
        ("\\.hpp$" (".cpp" ".c"))))
 (add-hook 'objc-mode-hook
          (lambda ()

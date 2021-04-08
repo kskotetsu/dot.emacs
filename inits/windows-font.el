@@ -1,6 +1,6 @@
-;(set-face-attribute 'default nil :family "Consolas" :height 100)
+(set-face-attribute 'default nil :family "Consolas" :height 110)
 ;(set-face-attribute 'default nil :family "Bitstream Vera Sans Mono" :height 80)
-(set-face-attribute 'default nil :family "DejaVu Sans Mono" :height 90)
+;(set-face-attribute 'default nil :family "DejaVu Sans Mono" :height 100)
 ;(set-face-attribute 'default nil :family "Inconsolata" :height 100)
 ;(set-face-attribute 'default nil :family "M+1P+IPAG circle 標準" :height 100)
 ;(set-fontset-font nil 'japanese-jisx0208 (font-spec :family "Meiryo UI"))

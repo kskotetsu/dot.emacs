@@ -21,6 +21,13 @@
 		)
   )
 
+(defun my-c-mode-update-gtags ()
+  (let* ((file (buffer-file-name (current-buffer)))
+     (dir (directory-file-name (file-name-directory file))))
+    (when (executable-find "global")
+      (start-process "gtags-update" nil
+             "global" "-uv"))))
+
 (defun my-cpp-mode ()
   (semantic-mode 1)
   ;; (custom-set-variables '(helm-mini-default-sources
@@ -33,11 +40,13 @@
   ;; 						  )))
   (my-ac-cc-mode-setup)
   (gtags-mode 1)
+  ;(ggtags-mode 1) ; タグの詳細自動表示時にキーリピートがおかしくなるので使わない
   (helm-gtags-mode)
   (highlight-symbol-mode)
   (imenu-add-to-menubar "Func")
-  (setq c-auto-newline nil)
-										;(linum-mode)
+  (setq c-eldoc-includes "-I./ -I../ -I\"C:/Program Files (x86)/Microsoft Visual Studio 9.0/VC/include\" -IC:/home/yamamura/work/mithril/program/lib/orbiter/include -Ic:/home/yamamura/work/mithril/program/code/src ")
+  (set (make-local-variable 'eldoc-idle-delay) 0.20)
+  (c-turn-on-eldoc-mode)
   (setq c-auto-newline nil)								;(linum-mode)
   (setq c++-tab-always-indent nil)		; [TAB] キーで、TABコードを入力
   (setq c-tab-always-indent nil)			; [TAB] キーで、TABコードを入力
@@ -64,6 +73,73 @@
   (c-set-offset 'statement-case-intro 4)
   (c-set-offset 'inline-open 0)
   (c-set-offset 'case-label 4)
+  (add-hook 'after-save-hook
+			'my-c-mode-update-gtags)
+
+  ;; (flymake-mode t)
+  ;; (let* ((temp-file (flymake-init-create-temp-buffer-copy
+  ;;                    'flymake-create-temp-inplace))
+  ;;        (local-file (file-relative-name
+  ;;                     temp-file
+  ;;                     (file-name-directory buffer-file-name))))
+  ;; 	(list "C:/Program Files (x86)/Microsoft Visual Studio 10.0/VC/bin/cl.exe" (list "/nologo" "/W4" "/Wp64" "/Zs" local-file)))
+  ;; (push '("\\.cpp\\'" flymake-vc-init) flymake-allowed-file-name-masks)
+  ;; (flycheck-mode t)
+
+  ;; (flycheck-define-checker c/c++-vc
+  ;; 	"vc"
+  ;; 	:command ("cl"
+  ;; 			  "-Wall"
+  ;; 			  "-Ic:/home/yamamura/work/ffm/sample/trunk/code/src"
+  ;; 			  source)
+  ;; 	:error-patterns
+  ;; 	((error line-start
+  ;; 			(file-name) "(" line ") : fatal error " (message)
+  ;; 			line-end)
+  ;; 	 (warning line-start
+  ;; 			  (file-name) "(" line ") : warning " (message)
+  ;; 			  line-end))
+  ;; 	:modes (c-mode c++-mode))
+
+  ;; (flycheck-select-checker 'c/c++-vc)
+  ;; (setq flycheck-clang-ms-extensions t)
+  ;; (setq flycheck-clang-no-exceptions t)
+  ;; (setq flycheck-clang-warnings
+  ;; 		(list
+  ;; 		 "-w"
+  ;; 		 ))
+
+  ;; (flycheck-string-list-p
+  ;;  (list
+  ;; 	"WIN32"
+  ;; 	"__w64"
+  ;; 	"__possibly_notnullterminated"
+  ;; 	"_WINDOWS"
+  ;; 	"NDEBUG"
+  ;; 	"ML_PLATFORM_DX9"
+  ;; 	"_OROCHI"
+  ;; 	"UNICODE"
+  ;; 	"_UNICODE"
+  ;; 	"NT_INCLUDED"
+  ;; 	))
+						   
+  ;; (setq flycheck-clang-include-path
+  ;; 		(list 
+  ;; 		 (expand-file-name "C:/Program Files (x86)/Microsoft SDKs/Windows/v7.0A/include")
+  ;; 		 (expand-file-name "C:/Program Files (x86)/Microsoft Visual Studio 10.0/VC/include")
+  ;; 		 (expand-file-name "C:/home/yamamura/work/ffm/sample/trunk/OROCHI/program/middleware/BISHAMON/inc/Win32/inc")
+  ;; 		 (expand-file-name "C:/home/yamamura/work/ffm/sample/trunk/OROCHI/program/middleware/YEBIS/include/Win32")
+  ;; 		 (expand-file-name "C:/home/yamamura/work/ffm/sample/trunk/OROCHI/program/middleware/Gx/src")
+  ;; 		 (expand-file-name "C:/home/yamamura/work/ffm/sample/trunk/OROCHI/program/middleware/Gx/src/Gsl")
+  ;; 		 (expand-file-name "C:/home/yamamura/work/ffm/sample/trunk/OROCHI/program/middleware/Gx/opensource/Expat/src")
+  ;; 		 (expand-file-name "C:/home/yamamura/work/ffm/sample/trunk/OROCHI/program/middleware/Gx/opensource/Pawn/src/amx")
+  ;; 		 (expand-file-name "C:/home/yamamura/work/ffm/sample/trunk/OROCHI/program/middleware/Gx/opensource/Pawn/src/compiler")
+  ;; 		 (expand-file-name "C:/home/yamamura/work/ffm/sample/trunk/OROCHI/program/middleware/Gx/opensource/Squish/src")
+  ;; 		 (expand-file-name "C:/home/yamamura/work/ffm/sample/trunk/OROCHI/program/middleware/Gx/opensource/Zlib/src")
+  ;; 		 (expand-file-name "C:/home/yamamura/work/ffm/sample/trunk/OROCHI/program/middleware/Gx/opensource/Bullet/src")
+  ;; 		 (expand-file-name "C:/home/yamamura/work/ffm/sample/trunk/code/src")
+  ;; 		 (expand-file-name "C:/home/yamamura/work/ffm/sample/trunk/lib/orbiter/include"))
+  ;; 		)
   )
 
 

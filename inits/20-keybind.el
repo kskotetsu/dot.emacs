@@ -1,6 +1,7 @@
 ;
 ;; C-hはバックスペース
-(global-set-key "\C-h" 'delete-backward-char)
+;(global-set-key "\C-h" 'delete-backward-char)
+(keyboard-translate ?\C-h ?\C-?)
 
 (global-set-key '[f2] 'multi-term)
 (global-set-key '[f4] 'ff-find-other-file)
@@ -52,8 +53,9 @@
 ;; c-aを繰り返すとインデント考慮の行頭、行頭への移動を繰り返す。
 (define-sequential-command my-seq-home
   back-to-indentation beginning-of-line seq-return)
-
-(global-set-key "\C-a" 'my-seq-home)
+;
+(global-set-key "\C-a" 'beginning-of-line)
+;(global-set-key "\C-a" 'my-seq-home)
 ;(global-set-key "\C-e" 'seq-end)
 
 ;; c-aを繰り返すと行頭・ヘッダ・上の階層への移動を繰り返す。
@@ -65,8 +67,10 @@
   end-of-line outline-next-visible-heading outline-down-heading  seq-return)
 
 (when (require 'org nil t)
-  (define-key org-mode-map "\C-a" 'my-org-seq-home)
-  (define-key org-mode-map "\C-e" 'my-org-seq-end))
+  ;(define-key org-mode-map "\C-a" 'my-org-seq-home)
+  ;(define-key org-mode-map "\C-e" 'my-org-seq-end))
+  (define-key org-mode-map "\C-a" 'beginning-of-line)
+  (define-key org-mode-map "\C-e" 'end-of-line))
 
 ;; window-numbering
 (window-numbering-mode)
@@ -77,6 +81,17 @@
 
 ;; anzu-mode
 (global-set-key (kbd "M-%") 'anzu-query-replace)
+
+; pythonのcp932エラーをどうするか
+;(require 'visual-regexp-steroids)
+;(setq vr/engine 'python)
+;; ;(setq vr/engine 'pcre2el)               ;elispでPCREから変換
+;(global-set-key (kbd "M-%") 'vr/query-replace)
+;; ;; multiple-cursorsを使っているならこれで
+;; ;(global-set-key (kbd "C-c m") 'vr/mc-mark)
+;; ;; 普段の正規表現isearchにも使いたいならこれを
+;; (global-set-key (kbd "C-M-r") 'vr/isearch-backward)
+;; (global-set-key (kbd "C-M-s") 'vr/isearch-forward)
 
 
 (defun my-isearch-get-word()

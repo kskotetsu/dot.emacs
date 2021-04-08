@@ -8,9 +8,9 @@
 	 ))
 
 (global-set-key (kbd "C-c t") 'gtags-find-tag)
-(global-set-key (kbd "C-t") 'gtags-find-tag)
-(global-set-key (kbd "M-t") 'gtags-pop-stack)
+(global-set-key (kbd "M-t") 'gtags-find-tag)
+(global-set-key (kbd "C-t") 'gtags-pop-stack)
 
-(global-set-key (kbd "C-t") 'helm-gtags-find-tag-from-here)
-(global-set-key (kbd "M-t") 'helm-gtags-previous-history)
+(global-set-key (kbd "M-t") 'helm-gtags-find-tag-from-here)
+(global-set-key (kbd "C-t") 'helm-gtags-previous-history)
 

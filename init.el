@@ -14,6 +14,10 @@
 ;;  windows-ウィンドウズ専用拡張
 ;;--------------------------------------------------------------------;
 
+; profiling
+(require 'profiler)
+(profiler-start 'cpu)
+
 ;;--------------------------------------------------------------------;
 ;; 引数をload-pathに追加する．
 ;; (add-to-load-path "/hoge/hoge/")で/hoge/hogeがload-pathに追加される
@@ -45,14 +49,30 @@
 ;; package
 (require 'package)
 
-; Add package-archives
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/")) ; ついでにmarmaladeも追加
+;; HTTPS 系のリポジトリ
+;; (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+;; (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+;; (add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t)
+
+;; HTTP 系のリポジトリ
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+;;(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+(add-to-list 'package-archives '("ELPA" . "http://tromey.com/elpa/") t)
+
+;; marmalade　は HTTP アクセスすると証明書エラーでフリーズするので注意
+;; (add-to-list 'package-archives  '("marmalade" . "http://marmalade-repo.org/packages/") t)
+
+;; Add package-archives
+;(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+
+;;(add-to-list 'package-archives '("melpa" . "http://stable.melpa.org/packages/") t)
+;;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/")) ; ついでにmarmaladeも追加
 
 ; Initialize
 (package-initialize)
 
-(require 'cl)
+;;(require 'cl)
 
 (defvar installing-package-list
   '(
@@ -69,7 +89,9 @@
 	undohist
 	undo-tree
 	recentf-ext
+	;auto-save-buffers-enhanced
 	;foreign-regexp
+	visual-regexp-steroids
 	;tabbar
 	diff-hl
 	gtags
@@ -82,7 +104,12 @@
 	guide-key
 	rainbow-delimiters
 	;guide-key-tip
-	auto-complete
+	;auto-complete
+	irony
+	company
+	company-quickhelp
+	company-jedi
+	company-irony
 	ac-dabbrev
 	expand-region
 	;icicles
@@ -95,8 +122,8 @@
 	multi-term
 	quickrun
 	bm
-	calfw
-	calfw-gcal
+	;calfw
+	;calfw-gcal
 	helm
 	helm-ag
 	helm-c-yasnippet
@@ -132,12 +159,15 @@
 	yaml-mode
 	ansible
 	;python-mode
-	epc
-	jedi
+	;epc
+	;jedi
+	batch-mode
 	lua-mode
-	zeal-at-point
-	dash-at-point
+	;c-eldoc
+	;zeal-at-point
+	;dash-at-point
 	dockerfile-mode
+	tr-ime
     ))
 
 (let ((not-installed (loop for x in installing-package-list
@@ -197,7 +227,37 @@
 
 ;; init.logはエラーのときだけ
 (custom-set-variables
- '(init-loader-show-log-after-init 'error-only))
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(avy-migemo-function-names
+   (quote
+    (swiper--add-overlays-migemo
+     (swiper--re-builder :around swiper--re-builder-migemo-around)
+     (ivy--regex :around ivy--regex-migemo-around)
+     (ivy--regex-ignore-order :around ivy--regex-ignore-order-migemo-around)
+     (ivy--regex-plus :around ivy--regex-plus-migemo-around)
+     ivy--highlight-default-migemo ivy-occur-revert-buffer-migemo ivy-occur-press-migemo avy-migemo-goto-char avy-migemo-goto-char-2 avy-migemo-goto-char-in-line avy-migemo-goto-char-timer avy-migemo-goto-subword-1 avy-migemo-goto-word-1 avy-migemo-isearch avy-migemo-org-goto-heading-timer avy-migemo--overlay-at avy-migemo--overlay-at-full)))
+ '(company-idle-delay 0.5)
+ '(custom-safe-themes
+   (quote
+    ("c3c0a3702e1d6c0373a0f6a557788dfd49ec9e66e753fb24493579859c8e95ab" default)))
+ '(foreign-regexp/regexp-type (quote ruby))
+ '(helm-ff-auto-update-initial-value nil)
+ '(helm-mini-default-sources
+   (quote
+    (helm-source-buffers-list helm-source-recentf helm-source-ls-git helm-source-buffer-not-found)))
+ '(horizontal-scroll-bar nil t)
+ '(horizontal-scroll-bars nil)
+ '(init-loader-show-log-after-init (quote error-only))
+ '(org-agenda-format-date "%Y/%m/%d ")
+ '(package-selected-packages
+   (quote
+    (helm-swoop srefactor visual-regexp visual-regexp-steroids counsel counsel-projectile dracula-theme smart-hungry-delete symbol-overlay volatile-highlights beacon dumb-jump helm-rg avy avy-migemo swiper-helm ivy-yasnippet editorconfig-generate editorconfig editorconfig-charset-extras google-translate powerline php-mode yaml-mode wgrep-helm undohist switch-window summarye sudden-death smooth-scroll smartrep shut-up session sequential-command ruby-end ruby-block recentf-ext rainbow-mode rainbow-delimiters pyenv-mode nyan-mode lua-mode jedi ipython init-loader hl-line+ highlight-symbol helm-package helm-ls-git helm-img-tiqav helm-gist helm-cmd-t helm-c-yasnippet helm-bm guide-key-tip gtags git-timemachine git-rebase-mode git-gutter-fringe git-commit-mode ggtags foreign-regexp flycheck-tip expand-region exec-path-from-shell evil enh-ruby-mode elscreen-persist e2wm dockerfile-mode diff-hl dash-at-point cygwin-mount csharp-mode company-quickhelp company-jedi company-irony company-ansible color-theme-monokai color-theme-molokai color-identifiers-mode col-highlight cedit c-eldoc batch-mode auto-save-buffers-enhanced anzu ansible ag ack-menu ack ace-jump-zap ace-isearch ac-dabbrev)))
+ '(reb-re-syntax (quote foreign-regexp))
+ '(session-use-package t nil (session))
+ '(yas-trigger-key "TAB"))
 
 (cd "~/")
 (setq default-directory "~/")
@@ -207,5 +267,39 @@
 
 ;; desktop
 (desktop-load-default)
+(setq desktop-load-locked-desktop t)
+(call-interactively 'desktop-read t (vector "~/.emacs.d/desktops/" t))
 (desktop-read)
 (desktop-save-mode)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(company-scrollbar-bg ((t (:background "#3df1410a539f"))))
+ '(company-scrollbar-fg ((t (:background "#330c359a44ea"))))
+ '(company-tooltip ((t (:inherit default :background "#2c832ebd3c17"))))
+ '(company-tooltip-common ((t (:inherit font-lock-constant-face))))
+ '(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
+ '(org-agenda-date ((t :weight bold)))
+ '(org-date ((t (:foreground "DodgerBlue1" :underline t))))
+ '(org-level-1 ((t (:foreground "LightSkyBlue" :height 150))))
+ '(org-level-2 ((t (:foreground "DarkGoldenrod" :height 100))))
+ '(org-level-3 ((t (:foreground "DodgerBlue3" :height 100))))
+ '(org-level-4 ((t (:foreground "chocolate1" :height 100))))
+ '(org-level-5 ((t (:foreground "PaleGreen" :height 100))))
+ '(org-level-6 ((t (:foreground "Aquamarine" :height 100))))
+ '(org-link ((t (:foreground "saddle brown" :underline t)))))
+
+;; powerline
+(powerline-default-theme)
+
+(profiler-report)
+(profiler-stop)
+
+;; (require 'cl) を見逃す
+(setq byte-compile-warnings '(not cl-functions obsolete))
+
+;; Local Variables:
+;; byte-compile-warnings: (not cl-functions obsolete)
+;; End:

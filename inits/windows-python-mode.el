@@ -3,9 +3,9 @@
 (defun my-python-mode ()
   (my-python-mode-common)
   (setq
-   python-shell-interpreter "C:\\Python34\\python.exe"
+   python-shell-interpreter "c:\\Python362\\python.exe"
    python-shell-interpreter-args
-   "-i C:\\Python34\\Scripts\\ipython-script.py")
+   "-i C:\Python362\\Scripts\\ipython-script.py")
 										; windowsではipythonのプロンプトが出なくて無限待ちになる
   (setq
    python-shell-interpreter "ipython"
@@ -23,6 +23,9 @@
 
 
 ;; for windows
+;(eval-after-load "jedi"
+;    '(setq jedi:server-command (list "/Python34/python" jedi:server-script)))
 (eval-after-load "jedi"
-    '(setq jedi:server-command (list "/Python34/python" jedi:server-script)))
+    '(setq jedi:server-command (list "c:/Python362/python" jedi:server-script)))
+
 

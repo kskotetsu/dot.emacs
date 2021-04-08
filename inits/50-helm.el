@@ -92,12 +92,13 @@
 	  (lambda () nil))
 
 ; C-u C-M-oで再帰grep
-(setq helm-ag-base-command "ag --nocolor --nogroup -S")
+;(setq helm-ag-base-command "ag --nocolor --nogroup -S")
+(setq helm-ag-base-command "rg --vimgrep --no-heading")
 
 (global-set-key (kbd "C-M-o") 'helm-do-grep)
 ;(global-set-key (kbd "<f3>") 'helm-ag)
 (global-set-key (kbd "<f3>") 'helm-ag-project-root)
-;(global-set-key (kbd "C-M-o") 'helm-ag)
+(global-set-key (kbd "C-M-o") 'helm-ag)
 (global-set-key (kbd "<f8>") 'helm-semantic-or-imenu)
 ;(global-set-key (kbd "<f8>") 'helm-imenu-anywhere)
 

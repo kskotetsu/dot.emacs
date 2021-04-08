@@ -33,8 +33,8 @@
 						(concat org-directory "cafe.org")
 						))
 
-(setq org-agenda-ndays 7)
-(setq org-agenda-span 20)
+(setq org-agenda-ndays 14)
+(setq org-agenda-span 14)
 (setq org-deadline-warning-days 7)
 (setq org-agenda-time-grid
       '((daily today require-timed)

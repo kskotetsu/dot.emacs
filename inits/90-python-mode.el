@@ -2,7 +2,7 @@
 ;(el-get 'sync 'ac-python)
 (require 'epc)
 (require 'python)
-(require 'jedi)
+;(require 'jedi)
 ;(require 'ac-python)
 
 (defun my:ensure-python.el (&optional branch overwrite)
@@ -48,10 +48,13 @@ latest version."
   (setq tab-width 4)
   (setq python-indent-guess-indent-offset nil)
   (flycheck-mode t)
-  (jedi:setup)
-  (setq jedi:complete-on-dot t)
-  (local-set-key (kbd "<f1> j") 'jedi:show-doc)
-  (define-key python-mode-map (kbd "C-c C-b") 'python-add-breakpoint)
+  ;; (jedi:setup)
+  ;; (setq jedi:complete-on-dot t)
+  ;; (setq jedi:use-shortcuts t)
+  ;; (add-hook 'python-mode-hook 'jedi:setup)
+  ;; (add-to-list 'company-backends 'company-jedi) ; backendに追加
+  ;; (local-set-key (kbd "<f1> j") 'jedi:show-doc)
+  ;; (define-key python-mode-map (kbd "C-c C-b") 'python-add-breakpoint)
   )
 
 (defun my-python-mode ()
@@ -85,3 +88,4 @@ latest version."
 (eval-after-load "jedi"
   '(setq jedi:server-command (list "~/.pyenv/shims/python" jedi:server-script))
   )
+

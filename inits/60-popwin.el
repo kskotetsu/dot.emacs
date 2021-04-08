@@ -9,7 +9,7 @@
 ;										("*Helm Completions*" :height 20)
 										("^\*[Hh]elm .+\*$" :regexp t :height 30)
 										("*grep*" :noselect t)
-										("*Org Agenda*" :noselect t)
+										("*Org Agenda*" :noselect t :height 25)
 										(" *Org todo*" :noselect t)
 										(" *Agenda Commands*" :noselect t)
                                         ("helm" :regexp t :height 0.6)

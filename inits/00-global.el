@@ -34,6 +34,20 @@
 ;; .#* とかのバックアップファイルを作らない
 (setq auto-save-default nil)
 
+;; auto-save-buffers-enhancedの設定
+
+;; 特定のファイルのみ有効にする
+(setq auto-save-buffers-enhanced-include-regexps '("\*scratch\*"))
+;; not-save-fileと.ignoreは除外する
+(setq auto-save-buffers-enhanced-exclude-regexps '("^not-save-file" "\\.ignore$"))
+;;; Wroteのメッセージを抑制
+;(setq auto-save-buffers-enhanced-quiet-save-p t)
+;; *scratch*も ~/.emacs.d/scratch に自動保存
+(setq auto-save-buffers-enhanced-save-scratch-buffer-to-file-p t)
+(setq auto-save-buffers-enhanced-file-related-with-scratch-buffer
+      (locate-user-emacs-file "scratch"))
+(auto-save-buffers-enhanced t)
+
 ;(ido-mode 1)
 ;(global-ede-mode 1)
 (require 'speedbar)
@@ -55,6 +69,7 @@
 (prefer-coding-system 'utf-8)			; 極力UTF-8とする
 (set-selection-coding-system 'utf-8)	; クリップボードの文字コード
 (set-terminal-coding-system 'utf-8)		; 端末の文字コード
+;(set-terminal-coding-system 'cp932)		; 端末の文字コード
 (set-keyboard-coding-system 'utf-8)
 (set-clipboard-coding-system 'cp932)
 
@@ -68,6 +83,10 @@
 
 ;; GCの頻度を減らす
 (setq gc-cons-threshold 5242880)
+(setq gc-cons-threshold 1073741824)
+(setq garbage-collection-messages t)
+;; Run GC every 60 seconds if emacs is idle.
+(run-with-idle-timer 60.0 t #'garbage-collect)
 
 ;; コンソールなどを閉じるときに確認しない
 (defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
@@ -181,8 +200,15 @@
 (add-to-list 'desktop-modes-not-to-save 'fundamental-mode)
 
 
-;; foreign-regexp
-;; (require 'foreign-regexp)
+(require 'gnutls)
+(add-to-list 'gnutls-trustfiles
+			 (expand-file-name
+			  "c:/emacs/comodorsadomainvalidationsecureserverca.crt"));; foreign-regexp
+
+(setq find-program "\"C:\\Program Files\\Git\\usr\\bin\\find.exe\""
+      grep-program "\"C:\\Program Files\\Git\\usr\\bin\\grep.exe\""
+	  diff-command "\"C:\\Program Files\\Git\\usr\\bin\\diff.exe\""
+      null-device "/dev/null");; (require 'foreign-regexp)
 
 ;; (custom-set-variables
 ;;  '(foreign-regexp/regexp-type 'ruby) ;; Choose your taste of foreign regexp

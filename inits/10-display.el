@@ -6,7 +6,10 @@
 (el-get 'sync 'color-theme-solarized)
 (el-get 'sync 'color-theme-tomorrow)
 ;(color-theme-solarized-dark)
-(color-theme-molokai)
+;(color-theme-molokai)
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(load-theme 'molokai t)
+(load-theme 'dracula t)
 
 ; 長い行を折り返し表示しない
 (setq truncate-lines t)
@@ -43,9 +46,10 @@
 (setq show-paren-delay 0)
 ;(setq show-paren-style 'parenthesis)
 (setq show-paren-style 'mixed)
-(set-face-attribute 'show-paren-match-face nil
-					:background nil :foreground "sienna2"
-					:underline t :weight 'extra-bold)
+;; (set-face-attribute 'show-paren-match-face nil
+;; 					:background nil :foreground "sienna2"
+;; 					:underline t :weight 'extra-bold)
+
 ;(set-face-background 'show-paren-match "royal blue")
 
 ;; 行番号
@@ -57,7 +61,19 @@
   (run-with-idle-timer 0.2 nil #'linum-update-current))
 
 ;; カーソル行をハイライト
-(global-hl-line-mode t)
+;(global-hl-line-mode nil)
+(require 'hl-line)
+;;; hl-lineを無効にするメジャーモードを指定する
+(defvar global-hl-line-timer-exclude-modes '(todotxt-mode))
+(defun global-hl-line-timer-function ()
+  (unless (memq major-mode global-hl-line-timer-exclude-modes)
+    (global-hl-line-unhighlight-all)
+    (let ((global-hl-line-mode t))
+      (global-hl-line-highlight))))
+(setq global-hl-line-timer
+      (run-with-idle-timer 0.05 t 'global-hl-line-timer-function))
+; (cancel-timer global-hl-line-timer)
+
 
 ;; diff-hl.el
 ;; バージョン管理下のコードをハイライト
@@ -79,15 +95,25 @@
 			(setq scroll-margin 0)))
 
 ;; 空白文字を可視化
-(global-whitespace-mode t)
-
-(setq whitespace-style '(face tabs tab-mark spaces space-mark))
+(setq whitespace-style
+      '(
+	face
+	tabs
+	tab-mark
+	spaces
+	space-mark
+	;trailing
+	))
 (setq whitespace-space-regexp "\\(\x3000+\\)")
 (setq whitespace-display-mappings
       '((space-mark ?\x3000 [?\□])
 		;(tab-mark   ?\t   [?\xBB ?\t])
         ))
+(global-whitespace-mode nil)
+(whitespace-mode 1)
+
 (set-face-foreground 'whitespace-space "firebrick")
+(set-face-foreground 'whitespace-space "gray25")
 (set-face-background 'whitespace-space nil)
 (set-face-bold-p 'whitespace-space nil)
 (set-face-foreground 'whitespace-tab "gray25")
